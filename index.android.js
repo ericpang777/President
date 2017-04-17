@@ -9,7 +9,9 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Image,
+  Button
 } from 'react-native';
 
 export default class President extends Component {
@@ -17,15 +19,18 @@ export default class President extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          President
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          Tap to start
         </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+        <Image source={require('./MiniSuits.jpg')} />
+        <Button
+        //onPress={Do something}
+        title="Learn More"
+        color="#841584"
+        accessibilityLabel="Learn more about this game"
+        />
       </View>
     );
   }
@@ -36,10 +41,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#ffffff',
   },
   welcome: {
-    fontSize: 20,
+    fontSize: 40,
     textAlign: 'center',
     margin: 10,
   },

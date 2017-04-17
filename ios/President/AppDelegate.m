@@ -34,4 +34,19 @@
   return YES;
 }
 
+#import "../../node_modules/react-native-orientation/iOS/RCTOrientation/Orientation.h"
+
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+    return [Orientation getOrientation];
+  }
+
+componentDidMount(){
+
+
+     Orientation.lockToLandscape();
+
+
+ }
+
+
 @end
