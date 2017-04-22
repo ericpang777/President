@@ -2,14 +2,21 @@
 The President Card Game on mobile, built using React Native
 
 ## TODO
-- [ ] Controllers for operning application
 - [ ] Landing page
+- [ ] Routing into game page
 - [ ] Game init page
 - [ ] Game init controller
 - [ ] User model
 
+## app
+- [] components
+- [] config
+- [] layouts
+- [] lib
+- [] routes
+
 ## In Game
-- [ ] Deck model - Possibly using dictionary / library
+- [ ] Deck model - Using card images
 - [ ] Card model - as part of deck model?
 - [ ] In-game controller
 - [ ] In-game view (UI)

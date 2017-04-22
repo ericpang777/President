@@ -25,12 +25,10 @@ export default class President extends Component {
           Tap to start
         </Text>
         <Image source={require('./MiniSuits.jpg')} />
-        <Button
-        //onPress={Do something}
-        title="Learn More"
-        color="#841584"
-        accessibilityLabel="Learn more about this game"
-        />
+         <Button
+           style={styles.instructions}
+           title="Pass and Play"/>
+        <Image source={require('./app/images/MiniSuits.jpg')} style={styles.startImage}/>
       </View>
     );
   }
@@ -53,6 +51,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  startImage: {
+    flex: 1,
+    width: 500,
+    height: 100,
+    margin: 0,
+    resizeMode: 'contain'
   },
 });
 
