@@ -1,2 +1,0 @@
-/**
-  Layout for settings page
