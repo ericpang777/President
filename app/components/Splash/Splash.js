@@ -15,6 +15,11 @@ import {
 
 } from 'react-native';
 
+<<<<<<< HEAD
+=======
+import styles from '../Splash/styles.js'
+
+>>>>>>> ericpang777/master
 class Splash extends Component{
   constructor(){
     super()
@@ -43,6 +48,7 @@ render(){
     }
   }
 
+<<<<<<< HEAD
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -68,5 +74,7 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
 });
+=======
+>>>>>>> ericpang777/master
 
 export default Splash
