@@ -1,59 +1,39 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
-  Text,
-  View,
-  Image,
-  Button
+  Navigator,
+
 } from 'react-native';
 
+import Splash from './app/components/Splash/Splash'
+import Game from './app/components/Game/Game'
+
 export default class President extends Component {
+  constructor(){
+    super()
+    this.renderScene = this.renderScene.bind(this)
+  }
+
+  renderScene(route, navigator)
+  {
+    if(route.name === 'splashPage')
+    {
+      return <Splash navigator={navigator} />
+    }
+    else if(route.name === 'gamePage')
+    {
+      return <Game navigator={navigator} />
+    }
+  }
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          President
-        </Text>
-        <Button
-           style={styles.instructions}
-           title="Pass and Play"/>
-        <Image source={require('./app/images/MiniSuits.jpg')} style={styles.startImage}/>
-      </View>
+      <Navigator
+        initialRoute={{name:'splashPage'}}
+        renderScene = {this.renderScene}
+        />
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#ffffff',
-  },
-  welcome: {
-    fontSize: 40,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    marginBottom: 0,
-    paddingBottom: 0,
-  },
-  startImage: {
-    flex: 1,
-    width: 500,
-    height: 100,
-    margin: 0,
-    resizeMode: 'contain'
-  },
-});
 
 AppRegistry.registerComponent('President', () => President);
