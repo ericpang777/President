@@ -23,7 +23,6 @@ import styles from '../Splash/styles.js'
 class Splash extends Component{
   constructor(){
     super()
-
     this.navigate = this.navigate.bind(this)
   }
 
@@ -31,22 +30,22 @@ class Splash extends Component{
   {
     this.props.navigator.push({name})
   }
-render(){
-    return(
-        <View style={styles.container}>
-          <Text style={styles.welcome}>
-            President
-          </Text>
-          <Button
-            title="Pass and Play"
-            style={styles.button}
-            onPress={() => this.navigate('gamePage')}
-          />
-          <Image source={require('../../images/MiniSuits.jpg')} style={styles.startImage}/>
-        </View>
-      );
+  render(){
+      return(
+          <View style={styles.container}>
+            <Text style={styles.welcome}>
+              President
+            </Text>
+            <Button
+              title="Pass and Play"
+              style={styles.button}
+              onPress={() => this.navigate('gamePage')}
+            />
+            <Image source={require('../../images/MiniSuits.jpg')} style={styles.startImage}/>
+          </View>
+        );
+      }
     }
-  }
 
 <<<<<<< HEAD
 const styles = StyleSheet.create({
