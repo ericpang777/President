@@ -11,15 +11,20 @@ import {
 import styles from '../Setup/styles.js'
 
 class Setup extends Component {
-  constructor(props)
+  constructor(){
+    super()
+    this.navigate = this.navigate.bind(this)
+  }
+
+  navigate(name)
   {
-    super(props)
+    this.props.navigator.push({name})
   }
   render() {
     return (
-      <View style={styles.//}>
-        <Text style={styles.//}>
-          How many
+      <View style={styles.container}>
+        <Text style={styles.header}>
+          Select the number of player in the game
         </Text>
         <Button
           title="Start Game"

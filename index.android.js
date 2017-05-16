@@ -8,7 +8,7 @@ import {
 
 import Splash from './app/components/Splash/Splash'
 import Game from './app/components/Game/Game'
-//import Setup from './app/components/Setup/Setup'
+import Setup from './app/components/Setup/Setup'
 
 export default class President extends Component {
   constructor(){
@@ -22,10 +22,10 @@ export default class President extends Component {
     {
       return <Splash navigator={navigator} />
     }
-    /*else if (route.name == 'setupPage')
+    else if (route.name === 'setupPage')
     {
       return <Setup navigator={navigator} />
-    }*/
+    }
     else if(route.name === 'gamePage')
     {
       return <Game navigator={navigator} />
