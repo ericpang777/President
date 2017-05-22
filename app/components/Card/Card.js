@@ -1,6 +1,9 @@
 
 import React, { Component } from 'react';
-import {image} from 'react-native';
+import {
+  Image,
+  View
+} from 'react-native';
 
 export default class Card extends Component {
   constructor(value:number,suit:String,cardName:String) {
@@ -11,6 +14,5 @@ export default class Card extends Component {
   }
   render() {
     <Image source={require('../../images/cards/' + cardName + '_of_' + suit + '.png')}/>
-
   }
 }

@@ -55,6 +55,7 @@ class Game extends Component {
       spades = new Card(value,"spades",cardName)
       diamonds = new Card(value,"diamonds",cardName)
       clubs = new Card(value,"clubs",cardName)
+
       deck.concat(hearts,spades,diamonds,clubs)
     }
     var joker = new Card(14,"black","joker")
