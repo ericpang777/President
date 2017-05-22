@@ -37,6 +37,7 @@ export default class President extends Component {
       <Navigator
         initialRoute={{name:'splashPage'}}
         renderScene = {this.renderScene}
+        configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
         />
     );
   }
