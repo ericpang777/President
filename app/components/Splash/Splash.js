@@ -12,7 +12,6 @@ import {
   View,
   Image,
   Button
-
 } from 'react-native';
 
 import styles from '../Splash/styles.js'
@@ -43,6 +42,5 @@ class Splash extends Component{
         );
       }
     }
-
 
 export default Splash
