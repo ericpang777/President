@@ -1,2 +1,0 @@
-/**
-  Custom button component
