@@ -8,11 +8,8 @@ import {
   Button
 } from 'react-native';
 
-<<<<<<< HEAD
-=======
 import styles from '../Game/styles.js'
 
->>>>>>> ericpang777/master
 class Game extends Component {
   constructor(props)
   {
@@ -29,22 +26,4 @@ class Game extends Component {
     );
   }
 }
-
-<<<<<<< HEAD
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00cc66'
-  },
-  table: {
-    textAlign: 'center',
-    marginBottom: 0,
-    paddingBottom: 0,
-  },
-});
-
-=======
->>>>>>> ericpang777/master
 export default Game
