@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react';
+
 import {
   Image,
   View
@@ -13,6 +14,8 @@ export default class Card extends Component {
     //return the image= num + "_of_" + suit + ".png"
   }
   render() {
+    return(
     <Image source={require('../../images/cards/' + cardName + '_of_' + suit + '.png')}/>
+  );
   }
 }
