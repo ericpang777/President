@@ -39,7 +39,7 @@ class Splash extends Component{
             <Button
               title="Pass and Play"
               style={styles.button}
-              onPress={() => this.navigate('gamePage')}
+              onPress={() => this.navigate('setupPage')}
             />
             <Image source={require('../../images/MiniSuits.jpg')} style={styles.startImage}/>
           </View>

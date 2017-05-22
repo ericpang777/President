@@ -5,19 +5,18 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#00cc66'
+    backgroundColor: '#00cc66',
   },
-  table: {
+  header: {
+    fontSize: 30,
     textAlign: 'center',
-    marginBottom: 0,
-    paddingBottom: 0,
+    margin: 20,
   },
-  card: {
-    flex: 1,
-    height: 170,
-    width: 80,
-    resizeMode: 'contain'
-  }
+  button: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
 });
 
 module.exports = styles

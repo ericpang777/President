@@ -24,6 +24,7 @@ class Game extends Component {
         <Text style={styles.table}>
           Game
         </Text>
+        <Image source={require('../../images/cards/10_of_clubs.png')} style={styles.card}/>
       </View>
     );
   }
