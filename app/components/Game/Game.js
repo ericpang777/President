@@ -17,7 +17,10 @@ class Game extends Component {
   {
     super(props)
 
+      /*let deck = new Array()
+
       var deck = new Array(54)
+
       var cardName:String
       var value:number
       var hearts:Card
@@ -58,10 +61,17 @@ class Game extends Component {
 
       deck.concat(hearts,spades,diamonds,clubs)
     }
+
+    var joker = new Card(14,"black","Joker")
+    deck.concat(joker)
+    joker = new Card(14,"red","Joker")
+    deck.concat(joker)*/
+
     var joker = new Card(14,"black","joker")
     deck.concat(joker)
     joker = new Card(14,"red","joker")
     deck.concat(joker)
+
   }
   render() {
     var card = new Card(10,"clubs","10")
@@ -70,7 +80,7 @@ class Game extends Component {
         <Text style={styles.table}>
           Game
         </Text>
-        <Image source={require('../../images/cards/10_of_clubs.png')} style={styles.card}/>
+        <Card suit="clubs" cardName="10" />
       </View>
     );
   }
