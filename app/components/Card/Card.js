@@ -11,7 +11,7 @@ import styles from '../Card/styles.js'
 
 
 export default class Card extends Component {
-  constructor(value:number,suit:String,cardName:String) {
+  constructor() {
     super()
     //generate a random number(int) and suit(String)
     //OR we can just have a deck object and randomly order the cards in that object, then we can just give out (numCards) to each player
@@ -26,11 +26,5 @@ export default class Card extends Component {
        style={styles.card}/>
       </View>
     );
-
-  render() {
-    return(
-    <Image source={require('../../images/cards/' + cardName + '_of_' + suit + '.png')}/>
-  );
-
   }
 }
