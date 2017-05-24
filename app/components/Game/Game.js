@@ -6,7 +6,7 @@ import {
   Text,
   View,
   Image,
-  Button,
+  Button
 } from 'react-native';
 
 import styles from '../Game/styles.js'
@@ -65,22 +65,20 @@ class Game extends Component {
     var joker = new Card(14,"black","Joker")
     deck.concat(joker)
     joker = new Card(14,"red","Joker")
-    deck.concat(joker)*/
+    deck.concat(joker)
 
     var joker = new Card(14,"black","joker")
     deck.concat(joker)
     joker = new Card(14,"red","joker")
-    deck.concat(joker)
-
+    deck.concat(joker)*/
   }
   render() {
-    var card = new Card(10,"clubs","10")
     return (
       <View style={styles.container}>
         <Text style={styles.table}>
-          Game
+          North
         </Text>
-        <Card suit="clubs" cardName="10" />
+        <Card value={8} suit="clubs" cardName="10" />
       </View>
     );
   }
