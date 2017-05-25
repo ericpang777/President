@@ -6,9 +6,9 @@ import {
   Image
 } from 'react-native';
 
-import CardOther from '../Card/CardOther'
+import Card from '../Card/Card'
 
-export default class Card extends Component {
+export default class Deck extends Component {
   constructor() {
     super()
 
@@ -17,10 +17,10 @@ export default class Card extends Component {
     var cardName:String
     var value:number
 
-    var hearts:CardOther
-    var spades:CardOther
-    var diamonds:CardOther
-    var clubs:CardOther
+    var hearts:Card
+    var spades:Card
+    var diamonds:Card
+    var clubs:Card
 
     for(var i = 1; i < 14; i++){
     switch (i) {
@@ -48,10 +48,10 @@ export default class Card extends Component {
         cardName = "" + i
         value = i-2
     }
-    hearts = new CardOther(value,"hearts")
-    spades = new CardOther(value,"spades")
-    diamonds = new CardOther(value,"diamonds")
-    clubs = new CardOther(value,"clubs")
+    hearts = new Card(value,"hearts")
+    spades = new Card(value,"spades")
+    diamonds = new Card(value,"diamonds")
+    clubs = new Card(value,"clubs")
 
     deck.push(hearts)
     deck.push(spades)

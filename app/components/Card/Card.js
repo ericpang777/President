@@ -2,28 +2,28 @@
 import React, { Component } from 'react';
 
 import {
-  Image,
-  View
+  View,
+  Image
 } from 'react-native';
 
 import styles from '../Card/styles.js'
 
 export default class Card extends Component {
-  constructor() {
+  constructor(value, suit) {
     super()
-    //generate a random number(int) and suit(String)
-    //OR we can just have a deck object and randomly order the cards in that object, then we can just give out (numCards) to each player
-    //return the image= num + "_of_" + suit + ".png"
-  }
-  render()
-  {
-    return(
-      <View>
-      <Image source={{uri:'President/app/images/cards/' + this.props.cardName + '_of_' + this.props.suit + '.png'}}
+    this.value = value
+    this.suit = suit
 
-      <Image source={{uri:'../../images/cards/' + this.props.cardName + '_of_' + this.props.suit + '.png'}}
-       style={styles.card}/>
-      </View>
-    );
+    this.cardName = "" + value + '_of_' + suit
+
+  }
+  getValue(){
+    return this.value
+  }
+  getImage(){
+
+    return '../../images/cards/' + this.cardName + '.png'
+
+    return './images/cards/' + this.cardName + '.png'
   }
 }
