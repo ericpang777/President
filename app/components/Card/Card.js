@@ -8,7 +8,6 @@ import {
 
 import styles from '../Card/styles.js'
 
-
 export default class Card extends Component {
   constructor() {
     super()
@@ -20,7 +19,7 @@ export default class Card extends Component {
   {
     return(
       <View>
-      <Image source={{uri:'../../images/cards/' + this.props.cardName + '_of_' + this.props.suit + '.png'}}
+      <Image source={{uri:'President/app/images/cards/' + this.props.cardName + '_of_' + this.props.suit + '.png'}}
        style={styles.card}/>
       </View>
     );

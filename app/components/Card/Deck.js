@@ -66,6 +66,7 @@ export default class Card extends Component {
 
   }
   getImage(num:number){
-    return
+    var card = deck[num]
+    return num.getImage()
   }
 }
