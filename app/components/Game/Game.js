@@ -10,9 +10,8 @@ import {
 } from 'react-native';
 
 import styles from '../Game/styles.js'
+import Card from '../Card/Card.js'
 import Deck from '../Card/Deck.js'
-import Hand from '../Card/Hand.js'
-import Card from '../Card/Hand.js'
 
 class Game extends Component {
   constructor(props)
@@ -111,6 +110,7 @@ class Game extends Component {
         <Text style={styles.table}>
           North
         </Text>
+      <Card value={10} card="12" imageIndex={0}/>
 
         <Image source={cardImages[0]} style={getOverlap(-3)}/>
         <Image source={cardImages[1]} style={getOverlap(-2)}/>
