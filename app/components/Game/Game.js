@@ -12,6 +12,7 @@ import {
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
 import Deck from '../Card/Deck.js'
+
 class Game extends Component {
   constructor(props)
   {
@@ -93,13 +94,24 @@ class Game extends Component {
     //Randomly sort card Array
     cardImages.sort(function(a, b){return 0.5 - Math.random()});
 
-
+    var cardArray = [
+      <Card card="A" value="12" imageIndex="0"/>,
+      <Card card="A" value="12" imageIndex="1"/>,
+      <Card card="A" value="12" imageIndex="2"/>,
+      <Card card="A" value="12" imageIndex="3"/>,
+      <Card card="A" value="12" imageIndex="4"/>,
+      <Card card="A" value="12" imageIndex="5"/>,
+      <Card card="A" value="12" imageIndex="6"/>,
+      <Card card="A" value="12" imageIndex="7"/>,
+      <Card card="A" value="12" imageIndex="8"/>
+    ]
     return (
       <View style={styles.container}>
         <Text style={styles.table}>
           North
         </Text>
       <Card value={10} card="12" imageIndex={0}/>
+
         <Image source={cardImages[0]} style={getOverlap(-3)}/>
         <Image source={cardImages[1]} style={getOverlap(-2)}/>
         <Image source={cardImages[2]} style={getOverlap(-1)}/>
