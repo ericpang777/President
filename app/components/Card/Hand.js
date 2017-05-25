@@ -73,7 +73,9 @@ export default class Hand extends Component {
         require('../../images/cards/K_of_spades.png'),
         require('../../images/cards/K_of_hearts.png'),
         require('../../images/cards/K_of_clubs.png'),
-        require('../../images/cards/K_of_diamonds.png')
+        require('../../images/cards/K_of_diamonds.png'),
+        require('../../images/cards/Joker_of_red.png'),
+        require('../../images/cards/Joker_of_black.png')
       ]
     }
   }
@@ -81,7 +83,7 @@ export default class Hand extends Component {
   render() {
     return(
       <View>
-        {this.state.cards}
+        {this.state.hand}
       </View>
     );
   }
