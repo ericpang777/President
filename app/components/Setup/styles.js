@@ -17,11 +17,6 @@ const styles = StyleSheet.create({
     color: '#ecf0f1',
     marginBottom: 5,
   },
-  slider: {
-   height: 50,
-   width: 300,
-   margin: 10,
- },
 });
 
 module.exports = styles
