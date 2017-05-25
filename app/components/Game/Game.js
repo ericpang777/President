@@ -80,8 +80,9 @@ require('../../images/cards/K_of_diamonds.png')
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 255,
-        width: 120,
+
+        height: 85,
+        width: 40,
         right: 20 + 40*(n-1),
         top: 100,
         resizeMode: 'contain'
@@ -91,6 +92,7 @@ require('../../images/cards/K_of_diamonds.png')
 
     //Randomly sort card Array
     cardImages.sort(function(a, b){return 0.5 - Math.random()});
+
 
     return (
       <View style={styles.container}>
@@ -106,6 +108,7 @@ require('../../images/cards/K_of_diamonds.png')
         <Image source={cardImages[6]} style={getOverlap(3)}/>
         <Image source={cardImages[7]} style={getOverlap(4)}/>
         <Image source={cardImages[8]} style={getOverlap(5)}/>
+
       </View>
     );
   }
