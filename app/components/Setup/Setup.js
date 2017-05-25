@@ -18,7 +18,7 @@ class Setup extends Component {
   }
 
   state = {
-     nextPlayer: 2
+     nextPlayer: 3
    };
 
   navigate(name)
@@ -35,7 +35,7 @@ class Setup extends Component {
         <Text> Players: {this.state.nextPlayer}</Text>
         <Slider
           style={styles.slider}
-          minimumValue={2}
+          minimumValue={3}
           maximumValue={6}
           step={1}
           onValueChange={(nextPlayer) => this.setState({nextPlayer: nextPlayer})} />

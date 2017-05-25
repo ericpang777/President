@@ -11,7 +11,7 @@ import {
 
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
-import Deck from '../Card/Deck'
+import Deck from '../Card/Deck.js'
 class Game extends Component {
   constructor(props)
   {
@@ -20,58 +20,58 @@ class Game extends Component {
   }
   render() {
     var cardImages = [
-require('../../images/cards/A_of_spades.png'),
-require('../../images/cards/A_of_hearts.png'),
-require('../../images/cards/A_of_clubs.png'),
-require('../../images/cards/A_of_diamonds.png'),
-require('../../images/cards/2_of_spades.png'),
-require('../../images/cards/2_of_hearts.png'),
-require('../../images/cards/2_of_clubs.png'),
-require('../../images/cards/2_of_diamonds.png'),
-require('../../images/cards/3_of_spades.png'),
-require('../../images/cards/3_of_hearts.png'),
-require('../../images/cards/3_of_clubs.png'),
-require('../../images/cards/3_of_diamonds.png'),
-require('../../images/cards/4_of_spades.png'),
-require('../../images/cards/4_of_hearts.png'),
-require('../../images/cards/4_of_clubs.png'),
-require('../../images/cards/4_of_diamonds.png'),
-require('../../images/cards/5_of_spades.png'),
-require('../../images/cards/5_of_hearts.png'),
-require('../../images/cards/5_of_clubs.png'),
-require('../../images/cards/5_of_diamonds.png'),
-require('../../images/cards/6_of_spades.png'),
-require('../../images/cards/6_of_hearts.png'),
-require('../../images/cards/6_of_clubs.png'),
-require('../../images/cards/6_of_diamonds.png'),
-require('../../images/cards/7_of_spades.png'),
-require('../../images/cards/7_of_hearts.png'),
-require('../../images/cards/7_of_clubs.png'),
-require('../../images/cards/7_of_diamonds.png'),
-require('../../images/cards/8_of_spades.png'),
-require('../../images/cards/8_of_hearts.png'),
-require('../../images/cards/8_of_clubs.png'),
-require('../../images/cards/8_of_diamonds.png'),
-require('../../images/cards/9_of_spades.png'),
-require('../../images/cards/9_of_hearts.png'),
-require('../../images/cards/9_of_clubs.png'),
-require('../../images/cards/9_of_diamonds.png'),
-require('../../images/cards/10_of_spades.png'),
-require('../../images/cards/10_of_hearts.png'),
-require('../../images/cards/10_of_clubs.png'),
-require('../../images/cards/10_of_diamonds.png'),
-require('../../images/cards/J_of_spades.png'),
-require('../../images/cards/J_of_hearts.png'),
-require('../../images/cards/J_of_clubs.png'),
-require('../../images/cards/J_of_diamonds.png'),
-require('../../images/cards/Q_of_spades.png'),
-require('../../images/cards/Q_of_hearts.png'),
-require('../../images/cards/Q_of_clubs.png'),
-require('../../images/cards/Q_of_diamonds.png'),
-require('../../images/cards/K_of_spades.png'),
-require('../../images/cards/K_of_hearts.png'),
-require('../../images/cards/K_of_clubs.png'),
-require('../../images/cards/K_of_diamonds.png')
+      require('../../images/cards/A_of_spades.png'),
+      require('../../images/cards/A_of_hearts.png'),
+      require('../../images/cards/A_of_clubs.png'),
+      require('../../images/cards/A_of_diamonds.png'),
+      require('../../images/cards/2_of_spades.png'),
+      require('../../images/cards/2_of_hearts.png'),
+      require('../../images/cards/2_of_clubs.png'),
+      require('../../images/cards/2_of_diamonds.png'),
+      require('../../images/cards/3_of_spades.png'),
+      require('../../images/cards/3_of_hearts.png'),
+      require('../../images/cards/3_of_clubs.png'),
+      require('../../images/cards/3_of_diamonds.png'),
+      require('../../images/cards/4_of_spades.png'),
+      require('../../images/cards/4_of_hearts.png'),
+      require('../../images/cards/4_of_clubs.png'),
+      require('../../images/cards/4_of_diamonds.png'),
+      require('../../images/cards/5_of_spades.png'),
+      require('../../images/cards/5_of_hearts.png'),
+      require('../../images/cards/5_of_clubs.png'),
+      require('../../images/cards/5_of_diamonds.png'),
+      require('../../images/cards/6_of_spades.png'),
+      require('../../images/cards/6_of_hearts.png'),
+      require('../../images/cards/6_of_clubs.png'),
+      require('../../images/cards/6_of_diamonds.png'),
+      require('../../images/cards/7_of_spades.png'),
+      require('../../images/cards/7_of_hearts.png'),
+      require('../../images/cards/7_of_clubs.png'),
+      require('../../images/cards/7_of_diamonds.png'),
+      require('../../images/cards/8_of_spades.png'),
+      require('../../images/cards/8_of_hearts.png'),
+      require('../../images/cards/8_of_clubs.png'),
+      require('../../images/cards/8_of_diamonds.png'),
+      require('../../images/cards/9_of_spades.png'),
+      require('../../images/cards/9_of_hearts.png'),
+      require('../../images/cards/9_of_clubs.png'),
+      require('../../images/cards/9_of_diamonds.png'),
+      require('../../images/cards/10_of_spades.png'),
+      require('../../images/cards/10_of_hearts.png'),
+      require('../../images/cards/10_of_clubs.png'),
+      require('../../images/cards/10_of_diamonds.png'),
+      require('../../images/cards/J_of_spades.png'),
+      require('../../images/cards/J_of_hearts.png'),
+      require('../../images/cards/J_of_clubs.png'),
+      require('../../images/cards/J_of_diamonds.png'),
+      require('../../images/cards/Q_of_spades.png'),
+      require('../../images/cards/Q_of_hearts.png'),
+      require('../../images/cards/Q_of_clubs.png'),
+      require('../../images/cards/Q_of_diamonds.png'),
+      require('../../images/cards/K_of_spades.png'),
+      require('../../images/cards/K_of_hearts.png'),
+      require('../../images/cards/K_of_clubs.png'),
+      require('../../images/cards/K_of_diamonds.png')
     ]
 
     function getOverlap(n){
@@ -81,8 +81,8 @@ require('../../images/cards/K_of_diamonds.png')
         justifyContent: 'center',
         alignItems: 'center',
 
-        height: 85,
-        width: 40,
+        height: 170,
+        width: 80,
         right: 20 + 40*(n-1),
         top: 100,
         resizeMode: 'contain'
@@ -99,6 +99,7 @@ require('../../images/cards/K_of_diamonds.png')
         <Text style={styles.table}>
           North
         </Text>
+      <Card value={10} card="12" imageIndex={0}/>
         <Image source={cardImages[0]} style={getOverlap(-3)}/>
         <Image source={cardImages[1]} style={getOverlap(-2)}/>
         <Image source={cardImages[2]} style={getOverlap(-1)}/>
