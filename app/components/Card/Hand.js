@@ -81,15 +81,4 @@ export default class Hand extends Component {
     }
   }
 
-  render() {
-    var imageViews = []
-    for(let i = 0; i < 10; i++) {
-      imageViews.push(<Image source={this.state.cardImages[this.state.hand[i].imageIndex]}/>)
-    }
-    return(
-      <View>
-        {imageViews}
-      </View>
-    );
-  }
 }

@@ -111,8 +111,7 @@ class Game extends Component {
         <Text style={styles.table}>
           North
         </Text>
-        <Hand hand={cardArray}/>
-        
+
         <Image source={cardImages[0]} style={getOverlap(-3)}/>
         <Image source={cardImages[1]} style={getOverlap(-2)}/>
         <Image source={cardImages[2]} style={getOverlap(-1)}/>
