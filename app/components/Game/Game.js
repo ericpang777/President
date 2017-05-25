@@ -107,8 +107,6 @@ require('../../images/cards/K_of_diamonds.png')
         <Image source={cardImages[6]} style={getOverlap(6)}/>
         <Image source={cardImages[7]} style={getOverlap(7)}/>
         <Image source={cardImages[8]} style={getOverlap(8)}/>
-
-        <Image source={cardImages[9]} style={styles.card} />
       </View>
     );
   }
