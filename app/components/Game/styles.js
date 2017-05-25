@@ -10,14 +10,18 @@ const styles = StyleSheet.create({
   },
   table: {
     textAlign: 'center',
-    flexDirection: 'column',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    bottom: 150,
     marginBottom: 0,
     paddingBottom: 0,
   },
   card: {
     flex: 1,
-    height: 85,
-    width: 40,
+    height: 170,
+    width: 80,
+    flexDirection: 'column',
+    justifyContent: 'center',
     resizeMode: 'contain'
   }
 });
