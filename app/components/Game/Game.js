@@ -11,7 +11,6 @@ import {
 
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
-import CardOther from '../Card/CardOther'
 import Deck from '../Card/Deck'
 class Game extends Component {
   constructor(props)
@@ -81,8 +80,8 @@ require('../../images/cards/K_of_diamonds.png')
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        height: 85,
-        width: 40,
+        height: 255,
+        width: 120,
         right: 20 + 40*(n-1),
         top: 100,
         resizeMode: 'contain'
@@ -90,7 +89,7 @@ require('../../images/cards/K_of_diamonds.png')
     }
     //{cardImages[Math.floor(Math.random()*cardImages.length)]
 
-    //Randomly sort Array
+    //Randomly sort card Array
     cardImages.sort(function(a, b){return 0.5 - Math.random()});
 
     return (
@@ -98,15 +97,15 @@ require('../../images/cards/K_of_diamonds.png')
         <Text style={styles.table}>
           North
         </Text>
-        <Image source={cardImages[0]} style={getOverlap(0)}/>
-        <Image source={cardImages[1]} style={getOverlap(1)}/>
-        <Image source={cardImages[2]} style={getOverlap(2)}/>
-        <Image source={cardImages[3]} style={getOverlap(3)}/>
-        <Image source={cardImages[4]} style={getOverlap(4)}/>
-        <Image source={cardImages[5]} style={getOverlap(5)}/>
-        <Image source={cardImages[6]} style={getOverlap(6)}/>
-        <Image source={cardImages[7]} style={getOverlap(7)}/>
-        <Image source={cardImages[8]} style={getOverlap(8)}/>
+        <Image source={cardImages[0]} style={getOverlap(-3)}/>
+        <Image source={cardImages[1]} style={getOverlap(-2)}/>
+        <Image source={cardImages[2]} style={getOverlap(-1)}/>
+        <Image source={cardImages[3]} style={getOverlap(0)}/>
+        <Image source={cardImages[4]} style={getOverlap(1)}/>
+        <Image source={cardImages[5]} style={getOverlap(2)}/>
+        <Image source={cardImages[6]} style={getOverlap(3)}/>
+        <Image source={cardImages[7]} style={getOverlap(4)}/>
+        <Image source={cardImages[8]} style={getOverlap(5)}/>
       </View>
     );
   }

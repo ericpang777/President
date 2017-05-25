@@ -10,8 +10,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   table: {
-    textAlign: 'center',
     flexDirection: 'row',
+    textAlign: 'center',
     justifyContent: 'center',
     bottom: 150,
     marginBottom: 0,
