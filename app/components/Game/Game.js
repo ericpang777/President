@@ -99,6 +99,7 @@ require('../../images/cards/K_of_diamonds.png')
         <Image source={cardImages[Math.floor(Math.random()*cardImages.length)]} style={getOverlap(6)}/>
         <Image source={cardImages[Math.floor(Math.random()*cardImages.length)]} style={getOverlap(7)}/>
         <Image source={cardImages[Math.floor(Math.random()*cardImages.length)]} style={getOverlap(8)}/>
+
       </View>
     );
   }
