@@ -70,15 +70,86 @@ class Game extends Component {
     var joker = new Card(14,"black","joker")
     deck.concat(joker)
     joker = new Card(14,"red","joker")
-    deck.concat(joker)*/
+    deck.concat(joker)
+  }*/
+
   }
+
   render() {
+    var cardImages = [
+      require('../../images/cards/A_of_spades.png'),
+      require('../../images/cards/A_of_hearts.png'),
+      require('../../images/cards/A_of_clubs.png'),
+      require('../../images/cards/A_of_diamonds.png'),
+      require('../../images/cards/2_of_spades.png'),
+      require('../../images/cards/2_of_hearts.png'),
+      require('../../images/cards/2_of_clubs.png'),
+      require('../../images/cards/2_of_diamonds.png'),
+      require('../../images/cards/3_of_spades.png'),
+      require('../../images/cards/3_of_hearts.png'),
+      require('../../images/cards/3_of_clubs.png'),
+      require('../../images/cards/3_of_diamonds.png'),
+      require('../../images/cards/4_of_spades.png'),
+      require('../../images/cards/4_of_hearts.png'),
+      require('../../images/cards/4_of_clubs.png'),
+      require('../../images/cards/4_of_diamonds.png'),
+      require('../../images/cards/5_of_spades.png'),
+      require('../../images/cards/5_of_hearts.png'),
+      require('../../images/cards/5_of_clubs.png'),
+      require('../../images/cards/5_of_diamonds.png'),
+      require('../../images/cards/6_of_spades.png'),
+      require('../../images/cards/6_of_hearts.png'),
+      require('../../images/cards/6_of_clubs.png'),
+      require('../../images/cards/6_of_diamonds.png'),
+      require('../../images/cards/7_of_spades.png'),
+      require('../../images/cards/7_of_hearts.png'),
+      require('../../images/cards/7_of_clubs.png'),
+      require('../../images/cards/7_of_diamonds.png'),
+      require('../../images/cards/8_of_spades.png'),
+      require('../../images/cards/8_of_hearts.png'),
+      require('../../images/cards/8_of_clubs.png'),
+      require('../../images/cards/8_of_diamonds.png'),
+      require('../../images/cards/9_of_spades.png'),
+      require('../../images/cards/9_of_hearts.png'),
+      require('../../images/cards/9_of_clubs.png'),
+      require('../../images/cards/9_of_diamonds.png'),
+      require('../../images/cards/10_of_spades.png'),
+      require('../../images/cards/10_of_hearts.png'),
+      require('../../images/cards/10_of_clubs.png'),
+      require('../../images/cards/10_of_diamonds.png'),
+      require('../../images/cards/J_of_spades.png'),
+      require('../../images/cards/J_of_hearts.png'),
+      require('../../images/cards/J_of_clubs.png'),
+      require('../../images/cards/J_of_diamonds.png'),
+      require('../../images/cards/Q_of_spades.png'),
+      require('../../images/cards/Q_of_hearts.png'),
+      require('../../images/cards/Q_of_clubs.png'),
+      require('../../images/cards/Q_of_diamonds.png'),
+      require('../../images/cards/K_of_spades.png'),
+      require('../../images/cards/K_of_hearts.png'),
+      require('../../images/cards/K_of_clubs.png'),
+      require('../../images/cards/K_of_diamonds.png'),
+      require('../../images/cards/Joker_of_red.png'),
+      require('../../images/cards/Joker_of_black.png')
+    ];
     return (
       <View style={styles.container}>
-        <Text style={styles.table}>
-          North
-        </Text>
-        <Card value={8} suit="clubs" cardName="10" />
+        <Image
+          source={cardImages[0]}
+          style={styles.card}
+        />
+        <Image
+          source={cardImages[0]}
+          style={styles.card}
+        />
+        <Image
+          source={cardImages[0]}
+          style={styles.card}
+        />
+        <Image
+          source={cardImages[0]}
+          style={styles.card}
+        />
       </View>
     );
   }
