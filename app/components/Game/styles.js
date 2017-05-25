@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     bottom: 150,
+    flexDirection: 'column',
     marginBottom: 0,
     paddingBottom: 0,
   },
@@ -23,6 +24,7 @@ const styles = StyleSheet.create({
     width: 80,
     flexDirection: 'column',
     justifyContent: 'center',
+
     resizeMode: 'contain'
   }
 });
