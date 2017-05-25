@@ -90,8 +90,10 @@ require('../../images/cards/K_of_diamonds.png')
     }
     //{cardImages[Math.floor(Math.random()*cardImages.length)]
 
+
     //Randomly sort Array
     cardImages.sort(function(a, b){return 0.5 - Math.random()});
+
 
     return (
       <View style={styles.container}>
