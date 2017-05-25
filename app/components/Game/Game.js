@@ -11,7 +11,8 @@ import {
 
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
-import Deck from '../Card/Deck'
+import Deck from '../Card/Deck.js'
+import Hand from '../Card/Hand.js'
 
 class Game extends Component {
   constructor(props)

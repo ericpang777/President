@@ -9,9 +9,9 @@ class Card extends Component {
   constructor(props) {
       super(props)
       this.state = {
-        card : this.props.card;
-        value : this.props.value;
-        imageIndex : this.props.imageIndex;
+        card : this.props.card,
+        value : this.props.value,
+        imageIndex : this.props.imageIndex
       }
   }
 }
@@ -20,7 +20,7 @@ export default class Hand extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      hand : this.props.hand;
+      hand : this.props.hand,
       cardImages : [
         require('../../images/cards/A_of_spades.png'),
         require('../../images/cards/A_of_hearts.png'),
@@ -76,5 +76,13 @@ export default class Hand extends Component {
         require('../../images/cards/K_of_diamonds.png')
       ]
     }
+  }
+
+  render() {
+    return(
+      <View>
+        {this.state.cards}
+      </View>
+    );
   }
 }
