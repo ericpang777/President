@@ -48,20 +48,6 @@ class Setup extends Component {
     );
   }
 }
-/*title: 'Players',
-render(): React.Element<any> {
-return <Slider step={1.00} />;
-}
-
-//Inside render method return statement
-<Slider
- {...this.props}
- onSlidingComplete={(value) => this.setState({
-     slideCompletionValue: value,
-     slideCompletionCount: this.state.slideCompletionCount + 1})}/>
-<Text>
- Completions: {this.state.slideCompletionCount} Value: {this.state.slideCompletionValue}
-</Text>*/
 
 //https://stackoverflow.com/questions/36660434/how-to-create-slider-in-react-native
 
