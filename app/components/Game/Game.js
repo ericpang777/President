@@ -33,6 +33,7 @@ class Game extends Component {
       <Card value={10} card="12" imageIndex={6} overlap = {2}/>
       <Card value={10} card="12" imageIndex={7} overlap = {3}/>
       <Card value={10} card="12" imageIndex={8} overlap = {4}/>
+
       </View>
     );
   }
