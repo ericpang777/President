@@ -25,7 +25,9 @@ class Game extends Component {
         <Text style={styles.table}>
           North
         </Text>
+
         <PassButton eventIndex={0}/>
+
       <Card value={10} card="12" imageIndex={0} overlap = {-4}/>
       <Card value={10} card="12" imageIndex={1} overlap = {-3}/>
       <Card value={10} card="12" imageIndex={2} overlap = {-2}/>
