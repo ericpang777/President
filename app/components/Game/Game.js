@@ -12,6 +12,7 @@ import {
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
 import Deck from '../Card/Deck.js'
+
 class Game extends Component {
   constructor(props)
   {
@@ -31,8 +32,7 @@ class Game extends Component {
       <Card value={10} card="12" imageIndex={5} overlap = {1}/>
       <Card value={10} card="12" imageIndex={6} overlap = {2}/>
       <Card value={10} card="12" imageIndex={7} overlap = {3}/>
-      <Card value={10} card="12" imageIndex={9} overlap = {4}/>
-
+      <Card value={10} card="12" imageIndex={8} overlap = {4}/>
       </View>
     );
   }
