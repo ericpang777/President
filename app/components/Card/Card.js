@@ -87,8 +87,6 @@ export default class Card extends Component {
         resizeMode: 'contain'
       }
     }
-    //Randomly sort card Array
-    this.state.cardImages.sort(function(a, b){return 0.5 - Math.random()});
     return(
       <View>
         <Image source={this.state.cardImages[this.state.imageIndex]} style={getOverlap(this.state.overlap)}/>
