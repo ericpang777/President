@@ -78,6 +78,7 @@ export default class Card extends Component {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
+
         height: 170,
         width: 80,
         right: 20 + 40*(n-1),
@@ -85,6 +86,8 @@ export default class Card extends Component {
         resizeMode: 'contain'
       }
     }
+    //Randomly sort card Array
+    this.state.cardImages.sort(function(a, b){return 0.5 - Math.random()});
     return(
       <View>
         <Image source={this.state.cardImages[this.state.imageIndex]} style={getOverlap(this.state.overlap)}/>

@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#2ecc71',
-    flexDirection: 'row'
   },
   table: {
     flexDirection: 'row',
