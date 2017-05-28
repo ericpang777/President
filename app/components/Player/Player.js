@@ -13,7 +13,7 @@ export default class Player extends Component {
     super(props)
     this.state = {
       hand : [
-        <Card value={this.props.hand[0][0]} card={this.props.hand[0][1]} imageIndex={this.props.hand[0][2]} overlap = {this.props.hand[0][3]}/>
+        <Card value={this.props.hand[0][0]} card={this.props.hand[0][1]} imageIndex={this.props.hand[0][2]} overlap={this.props.hand[0][3]}/>
       ],
       rank : 'neutral',
       name : this.props.name,

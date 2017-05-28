@@ -18,7 +18,7 @@ export default class TurnStart extends Component {
 
   render() {
     return(
-      <View>
+      <View style={styles.container}>
         <Button
           title={this.state.player}
           style={styles.button}
