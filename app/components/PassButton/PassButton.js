@@ -28,9 +28,7 @@ class PassButton extends Component {
       */
   }
   render() {
-
     let messages = ["Pass","Trade Cards"]
-
     return (
       <TouchableOpacity onPress={this._onPressButton()}>
         <View style = {styles.PassButton}>
