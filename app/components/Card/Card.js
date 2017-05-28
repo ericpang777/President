@@ -85,7 +85,7 @@ export default class Card extends Component {
         right: 20 + 40*(n-1),
         top: 100,
         resizeMode: 'contain'
-      }
+      };
     }
     return(
       <View>

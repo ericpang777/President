@@ -30,13 +30,25 @@ class Game extends Component {
       <Card value={10} card="12" imageIndex={7} overlap = {3}/>,
       <Card value={10} card="12" imageIndex={8} overlap = {4}/>
     ]
+
+    var otherHand = [
+      [10, 12, 0, -4],
+      [10, 12, 1, -3],
+      [10, 12, 2, -2],
+      [10, 12, 3, -1],
+      [10, 12, 4, 0],
+      [10, 12, 5, 1],
+      [10, 12, 6, 2],
+      [10, 12, 7, 3],
+      [10, 12, 8, 4]
+    ]
     return (
       <View style={styles.container}>
         <Text style={styles.table}>
           North
         </Text>
 
-        <Player hand={hand} name="Player1"/>
+        <Player hand={otherHand} name="Player1"/>
         <PassButton eventIndex={0}/>
         {/*}
         <Card value={10} card="12" imageIndex={0} overlap = {-4}/>
