@@ -19,11 +19,7 @@ export default class Player extends Component {
   render() {
     return(
       <View>
-        {
-          this.state.hand.map((card) => {
-            return (<Image source={card} key={card.imageIndex}/>);
-          })
-        }
+        
       </View>
     );
   }
