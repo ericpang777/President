@@ -7,8 +7,9 @@ import {
 } from 'react-native';
 
 import Splash from './app/components/Splash/Splash'
-import Game from './app/components/Game/Game'
-import Setup from './app/components/Setup/Setup'
+import Game from './app/components/Game/Game.js'
+import Setup from './app/components/Setup/Setup.js'
+import TurnStart from './app/components/TurnStart/TurnStart.js'
 
 export default class President extends Component {
   constructor(){
@@ -29,6 +30,10 @@ export default class President extends Component {
     else if(route.name === 'gamePage')
     {
       return <Game navigator={navigator} />
+    }
+    else if(route.name === 'turnstart')
+    {
+      return <TurnStart navigator={navigator} player='Player 1' />
     }
   }
   render() {

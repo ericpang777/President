@@ -5,23 +5,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2ecc71',
-  },
-  header: {
-    fontSize: 30,
-    textAlign: 'center',
-    margin: 20,
+    backgroundColor: '#2c3e50',
   },
   button: {
     textAlign: 'center',
-    color: '#ecf0f1',
+    color: '#333333',
     marginBottom: 5,
   },
-  slider: {
-   height: 50,
-   width: 300,
-   margin: 10,
- },
 });
 
 module.exports = styles
