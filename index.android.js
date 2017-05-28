@@ -33,7 +33,7 @@ export default class President extends Component {
     }
     else if(route.name === 'turnstart')
     {
-      return <TurnStart navigator={navigator} player='Test' />
+      return <TurnStart navigator={navigator} player='Player 1' />
     }
   }
   render() {

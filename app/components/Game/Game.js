@@ -49,7 +49,10 @@ class Game extends Component {
         </Text>
 
         <Player hand={otherHand} name="Player1"/>
-        <PassButton eventIndex={0}/>
+        <Button
+          title="Pass"
+          style={styles.button}
+        />
         {/*}
         <Card value={10} card="12" imageIndex={0} overlap = {-4}/>
         <Card value={10} card="12" imageIndex={1} overlap = {-3}/>

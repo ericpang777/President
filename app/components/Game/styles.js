@@ -25,6 +25,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
 
     resizeMode: 'contain'
+  },
+  button: {
+    textAlign: 'center',
+    color: '#ecf0f1',
+    marginBottom: 5,
   }
 });
 
