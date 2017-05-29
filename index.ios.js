@@ -16,6 +16,7 @@ import Splash from './app/components/Splash/Splash'
 import Game from './app/components/Game/Game'
 import Setup from './app/components/Setup/Setup'
 import TurnStart from './app/components/TurnStart/TurnStart'
+import GameLogic from './app/components/Game/GameLogic'
 
 export default class President extends Component {
   constructor(){
@@ -48,7 +49,7 @@ export default class President extends Component {
         initialRoute={{name:'splashPage'}}
         renderScene = {this.renderScene}
         configureScene={(route, routeStack) => Navigator.SceneConfigs.FloatFromBottom}
-        />
+      />
     );
   }
 }
