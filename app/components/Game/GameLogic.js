@@ -32,8 +32,15 @@ export default class GameLogic extends Component {
         <Player hand={this.state.p2Hand} name="Player2"/>,
         <Player hand={this.state.p3Hand} name="Player3"/>,
         <Player hand={this.state.p4Hand} name="Player4"/>
-      ]
+      ],
+      currentPlayerName: 'Player1',
+      currentPlayerNum: 1,
+      lastPlayedCards : [
+
+      ],
+      remainingPlayers : [1,2,3,4]
     }
+    startGame();
   }
 
   startGame() {
@@ -51,6 +58,25 @@ export default class GameLogic extends Component {
       for(var j = 0; j < 13; j++) {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
+  }
+
+  getHand(array) {
+    var newArray = [];
+    var lowestOverlap = array.length/2 * -1;
+    for(var i = 0; i < array.length; i++) {
+      newArray.push(<Card value={array[i][0]} imageIndex={array[i][1]} overlap={lowest+i}/>)
+    }
+  }
+
+  getActivePlayer() {
+    return this.state.activePlayer;
+  }
+
+  getLastPlayed() {
+    return this.state.lastPlayedCards;
+  }
+
+  getNextPlayer() {
 
   }
 }

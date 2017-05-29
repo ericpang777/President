@@ -16,6 +16,10 @@ export default class President extends Component {
   constructor(){
     super()
     this.renderScene = this.renderScene.bind(this)
+    this.state = {
+      data : <GameLogic onRef={ref => this.gameLogic = ref}/>,
+      gameEnd : false
+    }
   }
 
   renderScene(route, navigator)
@@ -34,7 +38,7 @@ export default class President extends Component {
     }
     else if(route.name === 'turnstart')
     {
-      return <TurnStart navigator={navigator} player='Player 1' />
+      return <TurnStart navigator={navigator} player={this.state.data.getActivePlayer()} />
     }
   }
   render() {
