@@ -97,4 +97,8 @@ export default class Card extends Component {
       </View>
     );
   }
+
+  getValue() {
+    return this.state.value;
+  }
 }
