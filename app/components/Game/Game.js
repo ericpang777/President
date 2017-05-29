@@ -18,7 +18,7 @@ class Game extends Component {
   constructor(props)
   {
     super(props)
-
+    
     this.state = {
       deck : [
         [12, 0],[12, 1],[12, 2],[12, 3],
@@ -38,6 +38,7 @@ class Game extends Component {
       ]
     }
 }
+
 
   render() {
   /*  var hand = [
