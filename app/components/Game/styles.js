@@ -6,11 +6,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-<<<<<<< HEAD
     backgroundColor: '#2ecc71'
-=======
-    backgroundColor: '#2ecc71',
->>>>>>> ericpang777/master
   },
   table: {
     flexDirection: 'row',

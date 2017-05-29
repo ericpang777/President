@@ -10,11 +10,9 @@ import {
 
 import styles from '../Game/styles.js'
 import Card from '../Card/Card.js'
-<<<<<<< HEAD
-=======
+
 import PassButton from '../PassButton/PassButton.js'
 import Player from '../Player/Player.js'
->>>>>>> ericpang777/master
 
 class Game extends Component {
   constructor(props)
@@ -96,9 +94,8 @@ class Game extends Component {
         <Text style={styles.table}>
           North
         </Text>
-<<<<<<< HEAD
         <Card suit="clubs" cardName="10" />
-=======
+
 
         <Player hand={otherHand} name="Player1"/>
         <Button
@@ -116,7 +113,6 @@ class Game extends Component {
         <Card value={10} card="12" imageIndex={7} overlap = {3}/>
         <Card value={10} card="12" imageIndex={8} overlap = {4}/>
         */}
->>>>>>> ericpang777/master
       </View>
     );
   }
