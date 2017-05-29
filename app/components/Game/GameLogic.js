@@ -22,13 +22,33 @@ export default class GameLogic extends Component {
         [11, 48],[11, 49],[11, 50],[11, 51],
         [14, 52],[14, 53]
       ],
-
+      p1Hand: [],
+      p2Hand: [],
+      p3Hand: [],
+      p4Hand: [],
       players : [
-        <Player hand={p1Hand} name="Player1"/>,
-        <Player hand={p2Hand} name="Player2"/>,
-        <Player hand={p3Hand} name="Player3"/>,
-        <Player hand={p4Hand} name="Player4"/>
+        <Player hand={this.state.p1Hand} name="Player1"/>,
+        <Player hand={this.state.p2Hand} name="Player2"/>,
+        <Player hand={this.state.p3Hand} name="Player3"/>,
+        <Player hand={this.state.p4Hand} name="Player4"/>
       ]
+    }
+  }
+  startGame(){
+    this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
+
+      for(var j = 0; j < 13); j++{
+        this.state.p1Hand.push{this.state.deck[j]}
+      }
+      for(var j = 0; j < 13); j++{
+        this.state.p2Hand.push{this.state.deck[j+13]}
+      }
+      for(var j = 0; j < 13); j++{
+        this.state.p3Hand.push{this.state.deck[j+26]}
+      }
+      for(var j = 0; j < 13); j++{
+        this.state.p4Hand.push{this.state.deck[j+39]}
+      }
     }
   }
 }
