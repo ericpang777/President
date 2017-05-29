@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
   handContainer: {
-    flex: 7,
+    flex: 12,
     //justifyContent: 'center',
     flexDirection: 'row',
     justifyContent: 'center',
@@ -33,13 +33,13 @@ const styles = StyleSheet.create({
     resizeMode: 'contain'
   },
   buttonContainer: {
-    flex: -1,
+    flex: 0,
     //justifyContent: 'center',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2ecc71',
-    
+
   }
 });
 

@@ -18,6 +18,11 @@ export default class President extends Component {
   constructor(){
     super()
     this.renderScene = this.renderScene.bind(this)
+    var cards = [
+      [12, 0],[12, 1],[12, 2],[12, 3],
+      [13, 4],[13, 5],[13, 6],[13, 7],
+      [1, 8]
+    ]
     this.state = {
       deck : [
         [12, 0],[12, 1],[12, 2],[12, 3],
@@ -53,7 +58,7 @@ export default class President extends Component {
       ],
       remainingPlayers : [1,2,3,4],
       gameEnd : false,
-      hand : [
+      /*hand : [
           <Card value={12} imageIndex={0} overlap = {-4}/>,
           <Card value={12} imageIndex={1} overlap = {-3}/>,
           <Card value={12} imageIndex={2} overlap = {-2}/>,
@@ -63,17 +68,9 @@ export default class President extends Component {
           <Card value={13} imageIndex={6} overlap = {2}/>,
           <Card value={13} imageIndex={7} overlap = {3}/>,
           <Card value={1} imageIndex={8} overlap = {4}/>
-        ]
+        ]*/
+        hand: this.getHand(cards)
     }
-    //Randomizes deck elements
-    this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
-    //New array called hand
-    var hand = []
-    //Hand is the first 9 elements of deck
-    hand = this.state.deck.splice(0,9)
-    //Sort hand by value
-    this.sort(hand)
-    //Build card objects
   }
 
   startGame() {
