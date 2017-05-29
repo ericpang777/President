@@ -26,10 +26,10 @@ export default class TurnStart extends Component {
     return(
       <View style={styles.container}>
         <Button
-          title={this.state.player}
+          title=""
           style={styles.button}
-          onPress={() => this.navigate('gamePage')}
-        />
+          onPress={() => this.navigate('gamePage')}>
+        </Button>
       </View>
     );
   }
