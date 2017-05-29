@@ -35,11 +35,11 @@ export default class President extends Component {
         [11, 48],[11, 49],[11, 50],[11, 51],
         [14, 52],[14, 53]
       ],
+      /*
       p1Hand: [],
       p2Hand: [],
       p3Hand: [],
       p4Hand: [],
-      /*
       players : [
         <Player hand={this.state.p1Hand} name="Player1"/>,
         <Player hand={this.state.p2Hand} name="Player2"/>,
@@ -65,7 +65,6 @@ export default class President extends Component {
           <Card value={1} imageIndex={8} overlap = {4}/>
         ]
     }
-    startGame();
   }
 
   startGame() {
@@ -128,11 +127,11 @@ export default class President extends Component {
     }
     else if(route.name === 'gamePage')
     {
-      return <Game navigator={navigator}/>
+      return <Game navigator={navigator} player={this.state.hand}/>
     }
     else if(route.name === 'turnstart')
     {
-      return <TurnStart navigator={navigator} player={<Card value={12} imageIndex={0} overlap = {-4}/>}/>
+      return <TurnStart navigator={navigator} player="Player"/>
     }
   }
   render() {

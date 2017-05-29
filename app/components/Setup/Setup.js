@@ -42,7 +42,7 @@ class Setup extends Component {
         <Button
           title="Start Game"
           color="#ecf0f1"
-          onPress={() => this.navigate('gamePage')}
+          onPress={() => this.navigate('turnstart')}
         />
       </View>
     );
