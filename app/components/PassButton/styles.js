@@ -1,21 +1,23 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  button: {
-    backgroundColor: "#27ae60",
-    borderWidth: 10,
-    borderRadius: 20,
-    borderColor: "#ecf0f1",
-    padding: 5,
+  container: {
     flex: 1,
-    height: 150,
-    width: 100,
-    resizeMode: 'contain'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF'
+  },
+  button: {
+    backgroundColor: "#33aaff",
+    borderWidth: 3,
+    borderRadius: 4,
+    borderColor: "#33aaff",
+    padding: 5
   },
   buttonText: {
-    fontSize: 24,
+    fontSize: 15,
     fontWeight: "bold",
-    color: "#ecf0f1"
+    color: "#FFFFFF"
   }
 });
 

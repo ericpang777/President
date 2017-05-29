@@ -19,20 +19,14 @@ class PassButton extends Component {
     }
   }
   _onPressButton(){
-      if(this.state.eventIndex == 0){
-        this.state.eventIndex++
-      }
-      /*
-      else if: rematch of game => eventIndex = 2
-      else: eventIndex = 0 (Start of game)
-      */
+    //transition to 
   }
   render() {
-    let messages = ["Pass","Trade Cards"]
+    let messages = ["PASS","TRADE CARDS"]
     return (
       <TouchableOpacity onPress={this._onPressButton()}>
-        <View style = {styles.PassButton}>
-          <Text>
+        <View style = {styles.button}>
+          <Text style={styles.buttonText}>
             {messages[this.state.eventIndex]}
           </Text>
         </View>
