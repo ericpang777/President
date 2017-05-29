@@ -42,26 +42,27 @@ export default class GameLogic extends Component {
     }
     startGame();
   }
-
+  //builds hands for all the players
   startGame() {
       this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
 
-      for(var j = 0; j < 13; j++) {
+      for(let j = 0; j < 13; j++) {
         this.state.p1Hand.push(this.state.deck[j])
       }
-      for(var j = 0; j < 13; j++) {
+      for(let j = 0; j < 13; j++) {
         this.state.p2Hand.push(this.state.deck[j+13])
       }
-      for(var j = 0; j < 13; j++) {
+      for(let j = 0; j < 13; j++) {
         this.state.p3Hand.push(this.state.deck[j+26])
       }
-      for(var j = 0; j < 13; j++) {
+      for(let j = 0; j < 13; j++) {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
   }
 
   getHand(array) {
     var newArray = [];
+    sort(array);
     var lowestOverlap = array.length/2 * -1;
     for(var i = 0; i < array.length; i++) {
       newArray.push(<Card value={array[i][0]} imageIndex={array[i][1]} overlap={lowest+i}/>)
@@ -77,6 +78,27 @@ export default class GameLogic extends Component {
   }
 
   getNextPlayer() {
+  }
+  //Sorts the hand in accending order
+  sort(){
+    var temp = []
+    for(let i =0; i<this.state.p1Hand.length; i++){
+        temp.push(this.state.p1Hand[i][0])
+    }
+    temp = temp.sort((a, b) => a - b);
 
+    for(var i =0; i<temp.length;i++){
+      if(temp[i]!=this.state.p1Hand[i][0]){
+
+        for(let j = i+1; j<temp.length; j++){
+          if(temp[i]==this.state.p1Hand[j][0]){
+
+            let card = this.state.p1Hand[i]
+            this.state.p1Hand[i] = this.state.p1Hand[j]
+            this.state.p1Hand[j] = card
+          }
+        }
+      }
+    }
   }
 }
