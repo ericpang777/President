@@ -48,13 +48,12 @@ class Game extends Component {
         <Text style={styles.table}>
           North
         </Text>
-
-        <Button
-          title="Pass"
-          style={styles.button}
-          onPress={() => this.navigate('turnstart')}
-        />
-        {this.state.player}
+        <View style={styles.buttonContainer}>
+          <PassButton eventIndex={0} path="Pass turn"/>
+        </View>
+        <View style={styles.handContainer}>
+          {this.state.player}
+        </View>
       </View>
     );
   }

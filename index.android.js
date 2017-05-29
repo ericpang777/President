@@ -65,6 +65,15 @@ export default class President extends Component {
           <Card value={1} imageIndex={8} overlap = {4}/>
         ]
     }
+    //Randomizes deck elements
+    this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
+    //New array called hand
+    var hand = []
+    //Hand is the first 9 elements of deck
+    hand = this.state.deck.splice(0,9)
+    //Sort hand by value
+    this.sort(hand)
+    //Build card objects
   }
 
   startGame() {
@@ -86,33 +95,46 @@ export default class President extends Component {
 
   getHand(array) {
     var newArray = [];
-    var sortedArray = sort(array);
+    var sortedArray = this.sort(array);
     var lowestOverlap = sortedArray.length/2 * -1;
     for(var i = 0; i < sortedArray.length; i++) {
-      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowest+i}/>)
+      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i}/>)
     }
+    return newArray
   }
+//recursive method to break down the array
+//returns sorted array
+  sort(array) {
+    var length = array.length,
+        mid    = Math.floor(length * 0.5),
+        left   = array.slice(0, mid),
+        right  = array.slice(mid, length);
+    if(length === 1) {return array;}
 
-  sort() {
-    var temp = []
-    for(let i =0; i<array.length; i++){
-        temp.push(array[i][0])
-    }
-    temp = temp.sort((a, b) => a - b);
+    return this.merge(this.sort(left), this.sort(right));
+  }
+  //returns array that is merged of the other two arrays
+  merge(left, right) {
+    var result = [];
 
-    for(var i =0; i<temp.length;i++){
-      if(temp[i]!=array[i][0]){
+    while(left.length || right.length) {
 
-        for(let j = i+1; j<temp.length; j++){
-          if(temp[i]==array[j][0]){
-
-            let card = array[i]
-            array[i] = array[j]
-            array[j] = card
-          }
+      if(left.length && right.length) {
+        if(left[0][0] < right[0][0]) {
+          result.push(left.shift());
+        }
+        else {
+          result.push(right.shift());
         }
       }
+      else if (left.length) {
+        result.push(left.shift());
+      }
+      else {
+        result.push(right.shift());
+      }
     }
+    return result;
   }
 
   renderScene(route, navigator)
@@ -131,10 +153,11 @@ export default class President extends Component {
     }
     else if(route.name === 'turnstart')
     {
-      return <TurnStart navigator={navigator} player="Player"/>
+      return <TurnStart navigator={navigator} player={this.state.currentPlayerName + "  Start"}/>
     }
   }
   render() {
+
     return (
       <Navigator
         initialRoute={{name:'splashPage'}}

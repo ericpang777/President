@@ -82,26 +82,4 @@ export default class GameLogic extends Component {
 
   getNextPlayer() {
   }
-  //Sorts the hand in accending order
-  sort() {
-    var temp = []
-    for(let i =0; i<array.length; i++){
-        temp.push(array[i][0])
-    }
-    temp = temp.sort((a, b) => a - b);
-
-    for(var i =0; i<temp.length;i++){
-      if(temp[i]!=array[i][0]){
-
-        for(let j = i+1; j<temp.length; j++){
-          if(temp[i]==array[j][0]){
-
-            let card = array[i]
-            array[i] = array[j]
-            array[j] = card
-          }
-        }
-      }
-    }
-  }
 }

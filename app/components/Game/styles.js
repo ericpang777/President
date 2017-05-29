@@ -1,35 +1,45 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
+  handContainer: {
+    flex: 7,
+    //justifyContent: 'center',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2ecc71',
+
+  },
   container: {
     flex: 1,
+    //justifyContent: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
-    flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: '#2ecc71'
   },
   table: {
-    flexDirection: 'row',
+    flex: 10,
     textAlign: 'center',
     justifyContent: 'center',
-    bottom: 150,
-    flexDirection: 'column',
-    marginBottom: 0,
-    paddingBottom: 0,
+    flexDirection: 'column'
   },
   card: {
     flex: 1,
     height: 170,
     width: 80,
-    flexDirection: 'column',
+    flexDirection: 'row',
     justifyContent: 'center',
-
     resizeMode: 'contain'
   },
-  button: {
-    textAlign: 'center',
-    color: '#ecf0f1',
-    marginBottom: 5,
+  buttonContainer: {
+    flex: -1,
+    //justifyContent: 'center',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#2ecc71',
+    
   }
 });
 

@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   button: {
+    flex: 1,
     textAlign: 'center',
     color: '#ecf0f1',
     marginBottom: 5,
