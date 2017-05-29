@@ -42,7 +42,6 @@ export default class GameLogic extends Component {
     }
     startGame();
   }
-
   componentDidMount() {
     this.state.currentPlayerName.focus();
   }
