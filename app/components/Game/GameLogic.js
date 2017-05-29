@@ -5,6 +5,7 @@ import Player from '../Player/Player.js'
 
 export default class GameLogic extends Component {
   constructor() {
+    super()
     this.state = {
       deck : [
         [12, 0],[12, 1],[12, 2],[12, 3],
@@ -34,22 +35,22 @@ export default class GameLogic extends Component {
       ]
     }
   }
-  startGame(){
-    //Randomly sorts deck
-    this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
 
-      for(var j = 0; j < 13; j++){
+  startGame() {
+      this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
+
+      for(var j = 0; j < 13; j++) {
         this.state.p1Hand.push(this.state.deck[j])
       }
-      for(var j = 0; j < 13; j++){
+      for(var j = 0; j < 13; j++) {
         this.state.p2Hand.push(this.state.deck[j+13])
       }
-      for(var j = 0; j < 13; j++){
+      for(var j = 0; j < 13; j++) {
         this.state.p3Hand.push(this.state.deck[j+26])
       }
-      for(var j = 0; j < 13; j++){
+      for(var j = 0; j < 13; j++) {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
-    }
+
   }
 }
