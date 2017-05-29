@@ -7,14 +7,14 @@ import {
 } from 'react-native';
 
 import Card from '../Card/Card.js'
+import styles from '../Player/styles.js'
+
 export default class Player extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      hand : [
-        <Card value={this.props.hand[0][0]} card={this.props.hand[0][1]} imageIndex={this.props.hand[0][2]} overlap={this.props.hand[0][3]}/>
-      ],
+      hand : this.props.hand,
       rank : 'neutral',
       name : this.props.name,
       cardImages : [
@@ -77,9 +77,8 @@ export default class Player extends Component {
   }
 
   render() {
-
     return(
-      <View>
+      <View style={styles.container}>
         {this.state.hand}
       </View>
     );
