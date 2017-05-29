@@ -9,6 +9,7 @@ import {
 import Splash from './app/components/Splash/Splash'
 import Game from './app/components/Game/Game.js'
 import Setup from './app/components/Setup/Setup.js'
+import GameLogic from './app/components/Game/GameLogic.js'
 import TurnStart from './app/components/TurnStart/TurnStart.js'
 
 export default class President extends Component {
