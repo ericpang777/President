@@ -21,7 +21,7 @@ class Game extends Component {
     this.navigate = this.navigate.bind(this)
 
     this.state = {
-      player : this.props.player
+      //player : this.props.player
     }
   }
 
@@ -54,7 +54,7 @@ class Game extends Component {
           style={styles.button}
           onPress={() => this.navigate('turnstart')}
         />
-        {this.state.player}
+        <Card value={12} imageIndex={0} overlap = {-4}/>
       </View>
     );
   }
