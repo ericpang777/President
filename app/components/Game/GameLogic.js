@@ -51,8 +51,9 @@ export default class GameLogic extends Component {
       for(let j = 0; j < 13; j++) {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
+    }
     //Sorts the hand in accending order
-    sort() {
+    sort(){
       var temp = []
       for(let i =0; i<this.state.p1Hand.length; i++){
           temp.push(this.state.p1Hand[i][0])
