@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#2ecc71',
+    backgroundColor: '#2ecc71'
   },
   table: {
     flexDirection: 'row',

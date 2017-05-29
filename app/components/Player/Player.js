@@ -15,7 +15,7 @@ export default class Player extends Component {
     super(props)
     this.state = {
       hand : this.props.hand,
-      rank : 'neutral',
+      rank : 'Neutral',
       name : this.props.name,
       cardImages : [
         require('../../images/cards/A_of_spades.png'),

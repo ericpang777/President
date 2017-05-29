@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
 import {
-  View,
-  Image
+  AppRegistry,
+  Image,
+  View
 } from 'react-native';
+
+import styles from '../Card/styles.js'
+
 
 export default class Card extends Component {
 
