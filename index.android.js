@@ -36,6 +36,7 @@ export default class President extends Component {
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
     var playerNames = ["Player1","Player2","Player3","Player4",]
+
     this.state = {
       deck : [
         [12, 0],[12, 1],[12, 2],[12, 3],
@@ -72,7 +73,10 @@ export default class President extends Component {
       ],
       remainingPlayers : [1,2,3,4],
       gameEnd : false,
-        hand: this.getHand(cards.splice(0,9))
+    }
+      hand: this.getHand(cards.splice(0,9))
+
+
     }
   }
 
