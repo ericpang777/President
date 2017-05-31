@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   View,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableNativeFeedback
 } from 'react-native';
 
 import styles from '../PassButton/styles.js'
@@ -20,13 +21,13 @@ class PassButton extends Component {
   render() {
     let messages = ["PASS","TRADE CARDS"]
     return (
-      <TouchableOpacity onPress={()=> {this.props.onPress()}}>
+      <TouchableNativeFeedback onPress={()=> {this.props.onPress()}}>
         <View style = {styles.button}>
           <Text style={styles.buttonText}>
             {messages[this.state.eventIndex]}
           </Text>
         </View>
-      </TouchableOpacity>
+      </TouchableNativeFeedback>
     );
   }
 }

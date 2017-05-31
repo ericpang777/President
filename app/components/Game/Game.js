@@ -45,7 +45,7 @@ class Game extends Component {
     ]*/
     return (
       <View style={styles.container}>
-        <Text style={styles.table}>
+        <Text style={styles.text}>
           North
         </Text>
         <View style={styles.buttonContainer}>

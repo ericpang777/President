@@ -153,6 +153,16 @@ export default class President extends Component {
         />
     );
   }
+  /*getActivePlaye0r() {
+    return this.state.activePlayer;
+  }
+
+  getLastPlayed() {
+    return this.state.lastPlayedCards;
+  }
+
+  getNextPlayer() {
+  }*/
 }
 
 AppRegistry.registerComponent('President', () => President);
