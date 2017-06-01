@@ -56,7 +56,7 @@ export default class President extends Component {
       ],
       remainingPlayers : [1,2,3,4],
       gameEnd : false,
-
+      
       hand: this.getHand(cards.splice(0,9)),
       hand2: this.getHand(cards.splice(0,9)),
       hand3: this.getHand(cards.splice(0,9)),

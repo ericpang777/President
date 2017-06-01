@@ -32,12 +32,9 @@ class Game extends Component {
 
 
   render() {
-
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          North
-        </Text>
+        <Image source={require('../../images/cards/10_of_clubs.png')} style={styles.card}/>
         <View style={styles.buttonContainer}>
           <PassButton
             eventIndex={0}

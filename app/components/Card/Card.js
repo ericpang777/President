@@ -97,16 +97,6 @@ export default class Card extends Component {
       resizeMode: 'contain'
     };
   }
-  playAnimate(){
-
-    /*if(this.props.value < lastPlayedCards.getValue()){
-        print("Cannot play card")
-    }
-    else{
-      animate
-    }
-    */
-  }
   render() {
     return(
         <View>
