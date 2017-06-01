@@ -38,6 +38,8 @@ export default class President extends Component {
 
     this.state = {
       deck : cards,
+
+    this.state = {
       /*
       p1Hand: [],
       p2Hand: [],
@@ -50,6 +52,7 @@ export default class President extends Component {
         <Player hand={this.state.p4Hand} name="Player4"/>
       ],*/
       currentPlayerNum:1,
+
       currentPlayerName: playerNames[0],
       lastPlayedCards : [
 
@@ -61,6 +64,7 @@ export default class President extends Component {
       hand2: this.getHand(cards.splice(0,9)),
       hand3: this.getHand(cards.splice(0,9)),
       hand4: this.getHand(cards.splice(0,9))
+    }
 
     }
   }
