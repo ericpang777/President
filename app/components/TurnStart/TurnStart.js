@@ -13,13 +13,20 @@ export default class TurnStart extends Component {
     super(props)
     this.navigate = this.navigate.bind(this)
     this.state = {
-      player : this.props.player
+      player : this.props.player,
+      playerNum: this.props.playerNum
     }
   }
 
   navigate(name)
   {
     this.props.navigator.push({name})
+    if(this.state.playerNum === 4){
+      this.state.playerNum = 1
+    }
+    else{
+      this.state.playerNum + 1
+    }
   }
 
   render() {

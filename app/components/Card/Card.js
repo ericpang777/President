@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import {
   View,
-  Image
+  Image,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 export default class Card extends Component {
@@ -13,6 +14,7 @@ export default class Card extends Component {
         value: this.props.value,
         imageIndex: this.props.imageIndex,
         overlap: this.props.overlap,
+        selected: false,
         cardImages : [
           require('../../images/cards/A_of_spades.png'),
           require('../../images/cards/A_of_hearts.png'),
@@ -72,25 +74,46 @@ export default class Card extends Component {
       }
   }
 
-  render() {
-    function getOverlap(n){
-      return{
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-
-        height: 170,
-        width: 80,
-        right: 20 + 40*(n-1),
-        top: 100,
-        resizeMode: 'contain'
-      };
+  getOverlap(n,selected){
+    if(selected == true){
+      var top = 0;
+      //var right = 0;
+      var right = 20 + 40*(n-1)
     }
+    else{
+      var top = 100;
+      var right = 20 + 40*(n-1)
+    }
+    return{
+      flex: 1,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      height: 170,
+      width: 80,
+      right: right,
+      top: top,
+      resizeMode: 'contain'
+    };
+  }
+  playAnimate(){
+
+    /*if(this.props.value < lastPlayedCards.getValue()){
+        print("Cannot play card")
+    }
+    else{
+      animate
+    }
+    */
+  }
+  render() {
     return(
-      <View>
-        <Image source={this.state.cardImages[this.state.imageIndex]} style={getOverlap(this.state.overlap)}/>
-      </View>
+        <View>
+          <TouchableWithoutFeedback onPress={()=> this.setState({selected : !this.state.selected})}>
+            <Image source={this.state.cardImages[this.state.imageIndex]} style={this.getOverlap(this.state.overlap, this.state.selected)}/>
+          </TouchableWithoutFeedback>
+        </View>
     );
   }
 

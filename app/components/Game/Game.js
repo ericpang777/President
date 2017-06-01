@@ -32,24 +32,17 @@ class Game extends Component {
 
 
   render() {
-  /*  var hand = [
-      <Card value={12} imageIndex={0} overlap = {-4}/>,
-      <Card value={12} imageIndex={1} overlap = {-3}/>,
-      <Card value={12} imageIndex={2} overlap = {-2}/>,
-      <Card value={12} imageIndex={3} overlap = {-1}/>,
-      <Card value={13} imageIndex={4} overlap = {0}/>,
-      <Card value={13} imageIndex={5} overlap = {1}/>,
-      <Card value={13} imageIndex={6} overlap = {2}/>,
-      <Card value={13} imageIndex={7} overlap = {3}/>,
-      <Card value={1} imageIndex={8} overlap = {4}/>
-    ]*/
+
     return (
       <View style={styles.container}>
-        <Text style={styles.table}>
+        <Text style={styles.text}>
           North
         </Text>
         <View style={styles.buttonContainer}>
-          <PassButton eventIndex={0} path="Pass turn"/>
+          <PassButton
+            eventIndex={0}
+            onPress={()=> {this.navigate('turnstart')}}
+          />
         </View>
         <View style={styles.handContainer}>
           {this.state.player}
