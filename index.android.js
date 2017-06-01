@@ -9,14 +9,13 @@ import {
 import Splash from './app/components/Splash/Splash'
 import Game from './app/components/Game/Game.js'
 import Setup from './app/components/Setup/Setup.js'
-import GameLogic from './app/components/Game/GameLogic.js'
 import TurnStart from './app/components/TurnStart/TurnStart.js'
 import Player from './app/components/Player/Player.js'
 import Card from './app/components/Card/Card.js'
 
 export default class President extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.renderScene = this.renderScene.bind(this)
     var cards = [
       [12, 0],[12, 1],[12, 2],[12, 3],
@@ -35,7 +34,7 @@ export default class President extends Component {
       [14, 52],[14, 53]
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
-    var playerNames = ["Player1","Player2","Player3","Player4",]
+    var playerNames = ["Player1","Player2","Player3","Player4"]
 
     this.state = {
       deck : cards,
@@ -50,7 +49,7 @@ export default class President extends Component {
         <Player hand={this.state.p3Hand} name="Player3"/>,
         <Player hand={this.state.p4Hand} name="Player4"/>
       ],*/
-      currentPlayerNum: 1,
+      currentPlayerNum:1,
       currentPlayerName: playerNames[0],
       lastPlayedCards : [
 
@@ -58,7 +57,10 @@ export default class President extends Component {
       remainingPlayers : [1,2,3,4],
       gameEnd : false,
 
-      hand: this.getHand(cards.splice(0,9))
+      hand: this.getHand(cards.splice(0,9)),
+      hand2: this.getHand(cards.splice(0,9)),
+      hand3: this.getHand(cards.splice(0,9)),
+      hand4: this.getHand(cards.splice(0,9))
 
     }
   }

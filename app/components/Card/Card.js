@@ -14,6 +14,7 @@ export default class Card extends Component {
         value: this.props.value,
         imageIndex: this.props.imageIndex,
         overlap: this.props.overlap,
+        selected: false,
         cardImages : [
           require('../../images/cards/A_of_spades.png'),
           require('../../images/cards/A_of_hearts.png'),
@@ -73,7 +74,16 @@ export default class Card extends Component {
       }
   }
 
-  getOverlap(n){
+  getOverlap(n,selected){
+    if(selected == true){
+      var top = 0;
+      //var right = 0;
+      var right = 20 + 40*(n-1)
+    }
+    else{
+      var top = 100;
+      var right = 20 + 40*(n-1)
+    }
     return{
       flex: 1,
       flexDirection: 'row',
@@ -82,12 +92,13 @@ export default class Card extends Component {
 
       height: 170,
       width: 80,
-      right: 20 + 40*(n-1),
-      top: 100,
+      right: right,
+      top: top,
       resizeMode: 'contain'
     };
   }
   playAnimate(){
+
     /*if(this.props.value < lastPlayedCards.getValue()){
         print("Cannot play card")
     }
@@ -98,13 +109,11 @@ export default class Card extends Component {
   }
   render() {
     return(
-      //<TouchableWithoutFeedback
-        //onPress={()=> {this.playAnimate()}}
-      //>
         <View>
-          <Image source={this.state.cardImages[this.state.imageIndex]} style={this.getOverlap(this.state.overlap)}/>
+          <TouchableWithoutFeedback onPress={()=> this.setState({selected : !this.state.selected})}>
+            <Image source={this.state.cardImages[this.state.imageIndex]} style={this.getOverlap(this.state.overlap, this.state.selected)}/>
+          </TouchableWithoutFeedback>
         </View>
-      //</TouchableWithoutFeedback>
     );
   }
 
