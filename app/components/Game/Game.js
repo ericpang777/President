@@ -21,7 +21,8 @@ class Game extends Component {
     this.navigate = this.navigate.bind(this)
 
     this.state = {
-      player : this.props.player
+      player : this.props.player,
+      eventIndex: 0
     }
   }
 
@@ -30,17 +31,13 @@ class Game extends Component {
     this.props.navigator.push({name})
   }
 
-
   render() {
-
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          North
-        </Text>
+        <Image source={require('../../images/cards/3_of_diamonds.png')} style={styles.card}/>
         <View style={styles.buttonContainer}>
           <PassButton
-            eventIndex={0}
+            eventIndex={this.state.eventIndex}
             onPress={()=> {this.navigate('turnstart')}}
           />
         </View>

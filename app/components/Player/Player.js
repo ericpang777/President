@@ -13,6 +13,9 @@ export default class Player extends Component {
 
   constructor(props) {
     super(props)
+    this.props={
+      playerNum: 1
+    }
     this.state = {
       hand : this.props.hand,
       rank : 'Neutral',

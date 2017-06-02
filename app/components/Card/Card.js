@@ -81,7 +81,8 @@ export default class Card extends Component {
       var right = 20 + 40*(n-1)
     }
     else{
-      var top = 100;
+
+      var top = 20;
       var right = 20 + 40*(n-1)
     }
     return{
@@ -90,22 +91,12 @@ export default class Card extends Component {
       justifyContent: 'center',
       alignItems: 'center',
 
-      height: 170,
+      height: 150,
       width: 80,
       right: right,
       top: top,
       resizeMode: 'contain'
     };
-  }
-  playAnimate(){
-
-    /*if(this.props.value < lastPlayedCards.getValue()){
-        print("Cannot play card")
-    }
-    else{
-      animate
-    }
-    */
   }
   render() {
     return(
