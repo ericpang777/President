@@ -81,6 +81,7 @@ export default class Card extends Component {
       var right = 20 + 40*(n-1)
     }
     else{
+
       var top = 20;
       var right = 20 + 40*(n-1)
     }

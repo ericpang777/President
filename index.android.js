@@ -38,6 +38,7 @@ export default class President extends Component {
 
     this.state = {
       deck : cards,
+
       /*
       p1Hand: [],
       p2Hand: [],
