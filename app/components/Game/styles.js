@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2ecc71',
   },
   card: {
-    flex: .4,
+    flex: .8,
     height: 170,
     width: 80,
     alignItems: 'center',
@@ -18,11 +18,12 @@ const styles = StyleSheet.create({
     resizeMode:'contain'
   },
   buttonContainer: {
-    flex: .1,
+    flex: .3,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2ecc71',
+    top:30
   },
   handContainer: {
     flex: .5,
@@ -30,6 +31,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2ecc71',
+    top:30
   },
 });
 
