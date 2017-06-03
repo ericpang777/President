@@ -34,9 +34,8 @@ export default class President extends Component {
       [14, 52],[14, 53]
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
-
+    var currentPlayerNum = 1
     this.state = {
-      deck : cards,
 
       /*
       p1Hand: [],
@@ -50,26 +49,27 @@ export default class President extends Component {
         <Player hand={this.state.p4Hand} name="Player4"/>
       ],*/
       playerNames : ["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6"],
-      currentPlayerNum:1,
+      CcurrentPlayerNum: currentPlayerNum,
 
       lastPlayedCards : [
-
+        [6]
       ],
       remainingPlayers : [1,2,3,4,5,6],
       inGamePlayers : [1,2,3,4,5,6],
       gameEnd : false,
 
       hands: [
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9))
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9)
       ]
     }
   }
 
+  /*
   startGame() {
       this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
 
@@ -86,13 +86,18 @@ export default class President extends Component {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
   }
+  */
 
   getHand(array) {
     var newArray = [];
     var sortedArray = this.sort(array);
     var lowestOverlap = sortedArray.length/2 * -1;
     for(var i = 0; i < sortedArray.length; i++) {
-      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i}/>)
+      var selected = false;
+      if(sortedArray[i][0] >= this.state.lastPlayedCards[0]) {
+        selected = true
+      }
+      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i} selected={selected}/>)
     }
     return newArray
   }
@@ -133,32 +138,29 @@ export default class President extends Component {
 
   renderScene(route, navigator)
   {
-
     switch(route.name) {
       case 'splashPage':
         return <Splash navigator={navigator} />
-        break;
       case 'setupPage':
         return <Setup navigator={navigator} />
-        break;
       case 'gamePageStart':
-        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={1}/>
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={1}/>
       case 'gamePageContinue':
-        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={0}/>
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
       case 'gamePagePass':
-        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={0}/>
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
       case 'turnstartStart':
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Start' />
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Start' />
       case 'turnstartContinue':
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Continue' />
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Continue' />
       case 'turnstartPass':
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Pass' />
-        break;
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Pass' />
       default:
         break;
     }
