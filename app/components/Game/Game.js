@@ -22,7 +22,8 @@ class Game extends Component {
 
     this.state = {
       player : this.props.player,
-      eventIndex: 0
+      eventIndex: this.props.eventIndex,
+      playerState : this.props.playerState
     }
   }
 
@@ -38,7 +39,7 @@ class Game extends Component {
         <View style={styles.buttonContainer}>
           <PassButton
             eventIndex={this.state.eventIndex}
-            onPress={()=> {this.navigate('turnstart')}}
+            onPress={()=> {this.navigate('turnstartPass')}}
           />
         </View>
         <View style={styles.handContainer}>

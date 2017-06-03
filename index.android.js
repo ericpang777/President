@@ -34,7 +34,6 @@ export default class President extends Component {
       [14, 52],[14, 53]
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
-    var playerNames = ["Player1","Player2","Player3","Player4"]
 
     this.state = {
       deck : cards,
@@ -50,21 +49,24 @@ export default class President extends Component {
         <Player hand={this.state.p3Hand} name="Player3"/>,
         <Player hand={this.state.p4Hand} name="Player4"/>
       ],*/
+      playerNames : ["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6"],
       currentPlayerNum:1,
 
-      currentPlayerName: playerNames[0],
       lastPlayedCards : [
 
       ],
       remainingPlayers : [1,2,3,4,5,6],
+      inGamePlayers : [1,2,3,4,5,6],
       gameEnd : false,
 
-      hand: this.getHand(cards.splice(0,9)),
-      hand2: this.getHand(cards.splice(0,9)),
-      hand3: this.getHand(cards.splice(0,9)),
-      hand4: this.getHand(cards.splice(0,9)),
-      hand5: this.getHand(cards.splice(0,9)),
-      hand6: this.getHand(cards.splice(0,9))
+      hands: [
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9))
+      ]
     }
   }
 
@@ -131,21 +133,34 @@ export default class President extends Component {
 
   renderScene(route, navigator)
   {
-    if(route.name === 'splashPage')
-    {
-      return <Splash navigator={navigator} />
-    }
-    else if (route.name === 'setupPage')
-    {
-      return <Setup navigator={navigator} />
-    }
-    else if(route.name === 'gamePage')
-    {
-      return <Game navigator={navigator} player={this.state.hand}/>
-    }
-    else if(route.name === 'turnstart')
-    {
-      return <TurnStart navigator={navigator} player={this.state.currentPlayerName + "  Start"}/>
+
+    switch(route.name) {
+      case 'splashPage':
+        return <Splash navigator={navigator} />
+        break;
+      case 'setupPage':
+        return <Setup navigator={navigator} />
+        break;
+      case 'gamePageStart':
+        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={1}/>
+        break;
+      case 'gamePageContinue':
+        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={0}/>
+        break;
+      case 'gamePagePass':
+        return <Game navigator={navigator} player={this.state.hands[this.state.currentPlayerNum-1]} eventIndex={0}/>
+        break;
+      case 'turnstartStart':
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Start' />
+        break;
+      case 'turnstartContinue':
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Continue' />
+        break;
+      case 'turnstartPass':
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum-1] + "  Start"} playerState='Pass' />
+        break;
+      default:
+        break;
     }
   }
   render() {

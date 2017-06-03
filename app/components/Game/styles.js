@@ -31,7 +31,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#2ecc71',
-    top:30
+    top:30,
+    right: 20
   },
 });
 
