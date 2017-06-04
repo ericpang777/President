@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -22,9 +21,8 @@ class Game extends Component {
 
     this.state = {
       player : this.props.player,
-      startOfRound:true,
-      playerNum: 1,
-      eventIndex: 0
+      eventIndex: this.props.eventIndex,
+      playerState : this.props.playerState
     }
   }
 
@@ -32,30 +30,17 @@ class Game extends Component {
   {
     this.props.navigator.push({name})
   }
-  getNextPlayer(){
-    if(this.state.playerNum == 6){
-      return 1
-    }
-    else{
-      return this.state.playerNum + 1
-    }
-  }
+
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          source={require('../../images/cards/3_of_diamonds.png')}
-          style={styles.card}
-        />
-
+        <Image source={require('../../images/cards/3_of_diamonds.png')} style={styles.card}/>
         <View style={styles.buttonContainer}>
-          <PassButton eventIndex={this.state.eventIndex}
-            onPress={()=> {this.navigate('turnstart')}
-             //this.setState({playerNum:this.getNextPlayer()})
-           }
+          <PassButton
+            eventIndex={this.state.eventIndex}
+            onPress={()=> {this.navigate('turnstartPass')}}
           />
         </View>
-
         <View style={styles.handContainer}>
           {this.state.player}
         </View>

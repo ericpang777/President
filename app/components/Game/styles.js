@@ -1,9 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  //Flex works as a ratio between components
 
-  //The container had a flex of 1 (100% of the screen space)
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -35,6 +33,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#2ecc71',
     top:30,
+    right: 20
   },
 });
 

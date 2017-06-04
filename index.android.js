@@ -40,37 +40,69 @@ export default class President extends Component {
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
 
-   this.state = {
-      deck : cards,
-      currentPlayerNum:1,
-      lastPlayedCards : [
+    var currentPlayerNum = 1
+    this.state = {
 
+      /*
+      p1Hand: [],
+      p2Hand: [],
+      p3Hand: [],
+      p4Hand: [],
+      players : [
+        <Player hand={this.state.p1Hand} name="Player1"/>,
+        <Player hand={this.state.p2Hand} name="Player2"/>,
+        <Player hand={this.state.p3Hand} name="Player3"/>,
+        <Player hand={this.state.p4Hand} name="Player4"/>
+      ],*/
+      playerNames : ["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6"],
+      CcurrentPlayerNum: currentPlayerNum,
+
+      lastPlayedCards : [
+        [6]
       ],
       remainingPlayers : [1,2,3,4,5,6],
+
+      inGamePlayers : [1,2,3,4,5,6],
       gameEnd : false,
 
-      //Array of player hands
-      hand: [
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9)),
-        this.getHand(cards.splice(0,9))
+      hands: [
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9),
+        cards.splice(0,9)
       ]
     }
   }
 
-  /*
-    Returns an array of cards based on the values in the array it recieves
-    It also calls a sort to sort the values so the cards are constructed in order of acending value
-  */
+  startGame() {
+      this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
+
+      for(let j = 0; j < 13; j++) {
+        this.state.p1Hand.push(this.state.deck[j])
+      }
+      for(let j = 0; j < 13; j++) {
+        this.state.p2Hand.push(this.state.deck[j+13])
+      }
+      for(let j = 0; j < 13; j++) {
+        this.state.p3Hand.push(this.state.deck[j+26])
+      }
+      for(let j = 0; j < 13; j++) {
+        this.state.p4Hand.push(this.state.deck[j+39])
+      }
+  }
+
   getHand(array) {
     var newArray = [];
     var sortedArray = this.sort(array);
     var lowestOverlap = sortedArray.length/2 * -1;
     for(var i = 0; i < sortedArray.length; i++) {
-      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i}/>)
+      var selected = false;
+      if(sortedArray[i][0] >= this.state.lastPlayedCards[0]) {
+        selected = true
+      }
+      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i} selected={selected}/>)
     }
     return newArray
   }
@@ -121,21 +153,32 @@ export default class President extends Component {
   }
   renderScene(route, navigator)
   {
-    if(route.name === 'splashPage')
-    {
-      return <Splash navigator={navigator} />
-    }
-    else if (route.name === 'setupPage')
-    {
-      return <Setup navigator={navigator} />
-    }
-    else if(route.name === 'gamePage')
-    {
-      return <Game navigator={navigator} player={this.state.hand[this.state.currentPlayerNum - 1]}/>
-    }
-    else if(route.name === 'turnstart')
-    {
-      return <TurnStart navigator={navigator} player={"Player " + this.state.currentPlayerNum + " Start"}/>
+
+    switch(route.name) {
+      case 'splashPage':
+        return <Splash navigator={navigator} />
+      case 'setupPage':
+        return <Setup navigator={navigator} />
+      case 'gamePageStart':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={1}/>
+      case 'gamePageContinue':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
+      case 'gamePagePass':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
+      case 'turnstartStart':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Start' />
+      case 'turnstartContinue':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Continue' />
+      case 'turnstartPass':
+        this.currentPlayerNum = this.currentPlayerNum+1
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Pass' />
+      default:
+        break;
     }
   }
   render() {
@@ -148,6 +191,16 @@ export default class President extends Component {
         />
     );
   }
+  /*getActivePlaye0r() {
+    return this.state.activePlayer;
+  }
+
+  getLastPlayed() {
+    return this.state.lastPlayedCards;
+  }
+
+  getNextPlayer() {
+  }*/
 }
 
 AppRegistry.registerComponent('President', () => President);
