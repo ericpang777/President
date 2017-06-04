@@ -17,6 +17,11 @@ export default class President extends Component {
   constructor(props){
     super(props)
     this.renderScene = this.renderScene.bind(this)
+    /*An 2d array of values that represents the deck
+      Each array is a card
+      1st number is card value
+      2nd number is card index
+    */
     var cards = [
       [12, 0],[12, 1],[12, 2],[12, 3],
       [13, 4],[13, 5],[13, 6],[13, 7],
@@ -34,56 +39,32 @@ export default class President extends Component {
       [14, 52],[14, 53]
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
-    var playerNames = ["Player1","Player2","Player3","Player4"]
 
-    this.state = {
+   this.state = {
       deck : cards,
-      /*
-      p1Hand: [],
-      p2Hand: [],
-      p3Hand: [],
-      p4Hand: [],
-      players : [
-        <Player hand={this.state.p1Hand} name="Player1"/>,
-        <Player hand={this.state.p2Hand} name="Player2"/>,
-        <Player hand={this.state.p3Hand} name="Player3"/>,
-        <Player hand={this.state.p4Hand} name="Player4"/>
-      ],*/
       currentPlayerNum:1,
-
-      currentPlayerName: playerNames[0],
       lastPlayedCards : [
 
       ],
       remainingPlayers : [1,2,3,4,5,6],
       gameEnd : false,
 
-      hand: this.getHand(cards.splice(0,9)),
-      hand2: this.getHand(cards.splice(0,9)),
-      hand3: this.getHand(cards.splice(0,9)),
-      hand4: this.getHand(cards.splice(0,9)),
-      hand5: this.getHand(cards.splice(0,9)),
-      hand6: this.getHand(cards.splice(0,9))
+      //Array of player hands
+      hand: [
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9)),
+        this.getHand(cards.splice(0,9))
+      ]
     }
   }
 
-  startGame() {
-      this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
-
-      for(let j = 0; j < 13; j++) {
-        this.state.p1Hand.push(this.state.deck[j])
-      }
-      for(let j = 0; j < 13; j++) {
-        this.state.p2Hand.push(this.state.deck[j+13])
-      }
-      for(let j = 0; j < 13; j++) {
-        this.state.p3Hand.push(this.state.deck[j+26])
-      }
-      for(let j = 0; j < 13; j++) {
-        this.state.p4Hand.push(this.state.deck[j+39])
-      }
-  }
-
+  /*
+    Returns an array of cards based on the values in the array it recieves
+    It also calls a sort to sort the values so the cards are constructed in order of acending value
+  */
   getHand(array) {
     var newArray = [];
     var sortedArray = this.sort(array);
@@ -128,6 +109,16 @@ export default class President extends Component {
     return result;
   }
 
+
+  getActivePlayer() {
+    return this.state.activePlayer;
+  }
+  getLastPlayed() {
+    return this.state.lastPlayedCards;
+  }
+  getNextPlayer() {
+
+  }
   renderScene(route, navigator)
   {
     if(route.name === 'splashPage')
@@ -140,11 +131,11 @@ export default class President extends Component {
     }
     else if(route.name === 'gamePage')
     {
-      return <Game navigator={navigator} player={this.state.hand}/>
+      return <Game navigator={navigator} player={this.state.hand[this.state.currentPlayerNum - 1]}/>
     }
     else if(route.name === 'turnstart')
     {
-      return <TurnStart navigator={navigator} player={this.state.currentPlayerName + "  Start"}/>
+      return <TurnStart navigator={navigator} player={"Player " + this.state.currentPlayerNum + " Start"}/>
     }
   }
   render() {
@@ -157,16 +148,6 @@ export default class President extends Component {
         />
     );
   }
-  /*getActivePlaye0r() {
-    return this.state.activePlayer;
-  }
-
-  getLastPlayed() {
-    return this.state.lastPlayedCards;
-  }
-
-  getNextPlayer() {
-  }*/
 }
 
 AppRegistry.registerComponent('President', () => President);

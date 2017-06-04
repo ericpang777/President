@@ -19,7 +19,7 @@ class PassButton extends Component {
   }
 
   render() {
-    let messages = ["PASS","PLAY","PLAY DOUBLE", "PLAY TRIPLE", "PLAY FOUR","TRADE CARDS"]
+    let messages = ["PASS","PLAY"]
     return (
       <TouchableNativeFeedback onPress={()=> {this.props.onPress()}}>
         <View style = {styles.button}>

@@ -17,7 +17,7 @@ export default class Player extends Component {
       playerNum: 1
     }
     this.state = {
-      hand : this.props.hand,
+      hand : this.props.hand[this.props.playerNum - 1],
       rank : 'Neutral',
       name : this.props.name,
       cardImages : [

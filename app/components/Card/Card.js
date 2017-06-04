@@ -75,14 +75,12 @@ export default class Card extends Component {
   }
 
   getOverlap(n,selected){
+    //Changes space above card whether it is selected or not
     if(selected == true){
       var top = 0;
-      //var right = 0;
-      var right = 20 + 40*(n-1)
     }
     else{
       var top = 20;
-      var right = 20 + 40*(n-1)
     }
     return{
       flex: 1,
@@ -92,7 +90,7 @@ export default class Card extends Component {
 
       height: 150,
       width: 80,
-      right: right,
+      right: 20 + 40*(n-1),
       top: top,
       resizeMode: 'contain'
     };
@@ -101,7 +99,10 @@ export default class Card extends Component {
     return(
         <View>
           <TouchableWithoutFeedback onPress={()=> this.setState({selected : !this.state.selected})}>
-            <Image source={this.state.cardImages[this.state.imageIndex]} style={this.getOverlap(this.state.overlap, this.state.selected)}/>
+            <Image
+              source={this.state.cardImages[this.state.imageIndex]}
+              style={this.getOverlap(this.state.overlap, this.state.selected)}
+            />
           </TouchableWithoutFeedback>
         </View>
     );
