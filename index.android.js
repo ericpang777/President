@@ -60,6 +60,9 @@ export default class President extends Component {
       lastPlayedCards : [
         [6]
       ],
+      lastPlayedValue : [
+        [6]
+      ],
       remainingPlayers : [1,2,3,4,5,6],
 
       inGamePlayers : [1,2,3,4,5,6],
@@ -102,7 +105,13 @@ export default class President extends Component {
       if(sortedArray[i][0] >= this.state.lastPlayedCards[0]) {
         selected = true
       }
-      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i} selected={selected}/>)
+      newArray.push(
+        <Card value={sortedArray[i][0]}
+              imageIndex={sortedArray[i][1]}
+              overlap={lowestOverlap+i}
+              selected={selected}
+              onPress={this.state.lastPlayedCards.push[sortedArray[i][1]]}
+        />)
     }
     return newArray
   }
@@ -146,7 +155,7 @@ export default class President extends Component {
     return this.state.activePlayer;
   }
   getLastPlayed() {
-    return this.state.lastPlayedCards;
+    return this.state.lastPlayedCards[this.state.lastPlayedCards.length() - 1];
   }
   getNextPlayer() {
 
@@ -167,7 +176,7 @@ export default class President extends Component {
         return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
       case 'gamePagePass':
         this.currentPlayerNum = this.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} lastPlayedCards={()=> this.getLastPlayed()} eventIndex={0}/>
       case 'turnstartStart':
         this.currentPlayerNum = this.currentPlayerNum+1
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Start' />
