@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -22,6 +21,7 @@ class Game extends Component {
 
     this.state = {
       player : this.props.player,
+      lastPlayed: this.props.lastPlayedCards,
       eventIndex: this.props.eventIndex,
       playerState : this.props.playerState
     }

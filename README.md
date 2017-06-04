@@ -9,11 +9,11 @@ The President Card Game on mobile, built using React Native
 - [ ] User model
 
 ## app
-- [] components
-- [] config
-- [] layouts
-- [] lib
-- [] routes
+- [ ] components
+- [ ] config
+- [ ] layouts
+- [ ] lib
+- [ ] routes
 
 ## In Game
 - [ ] Deck model - Using card images
@@ -26,7 +26,7 @@ The President Card Game on mobile, built using React Native
 - [ ] Animations MVC
 - [ ] Animations library?
 - [ ] Animations options screen
-- [ ] Animations options 
+- [ ] Animations options
 
 ## End Game & Options
 - [ ] Game termination screen

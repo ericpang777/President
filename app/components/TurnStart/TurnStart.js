@@ -14,14 +14,16 @@ export default class TurnStart extends Component {
     this.navigate = this.navigate.bind(this)
     this.state = {
       playerName : this.props.playerName,
-      playerNum : this.props.playerNum,
-      playerState : this.props.playerState
+      player : this.props.player,
+      playerNum: this.props.playerNum
+
     }
   }
 
   navigate(name)
   {
     this.props.navigator.push({name})
+
     if(this.state.playerNum === 6){
       this.state.playerNum = 1
     }
@@ -36,7 +38,7 @@ export default class TurnStart extends Component {
         <Button
           title={this.state.playerName}
           style={styles.button}
-          onPress={() => this.navigate(('gamePage' + this.state.playerState))}>
+          onPress={() => this.navigate(('gamePagePass'))}>
         </Button>
       </View>
     );

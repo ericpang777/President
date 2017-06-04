@@ -16,6 +16,7 @@ export default class Card extends Component {
         imageIndex: this.props.imageIndex,
         overlap: this.props.overlap,
         selected: this.props.selected,
+        played: false,
         cardImages : [
           require('../../images/cards/A_of_spades.png'),
           require('../../images/cards/A_of_hearts.png'),
@@ -102,7 +103,7 @@ export default class Card extends Component {
   render() {
     return(
         <View>
-          <TouchableWithoutFeedback /*onPress={()=> this.setState({selected : !this.state.selected})}*/>
+          <TouchableWithoutFeedback onPress={()=> this.props.onPress()}>
             <Image source={this.state.cardImages[this.state.imageIndex]} style={this.getOverlap(this.state.overlap, this.state.selected)}/>
           </TouchableWithoutFeedback>
         </View>

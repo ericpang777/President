@@ -17,6 +17,11 @@ export default class President extends Component {
   constructor(props){
     super(props)
     this.renderScene = this.renderScene.bind(this)
+    /*An 2d array of values that represents the deck
+      Each array is a card
+      1st number is card value
+      2nd number is card index
+    */
     var cards = [
       [12, 0],[12, 1],[12, 2],[12, 3],
       [13, 4],[13, 5],[13, 6],[13, 7],
@@ -34,6 +39,7 @@ export default class President extends Component {
       [14, 52],[14, 53]
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
+
     var currentPlayerNum = 1
     this.state = {
 
@@ -54,7 +60,11 @@ export default class President extends Component {
       lastPlayedCards : [
         [6]
       ],
+      lastPlayedValue : [
+        [6]
+      ],
       remainingPlayers : [1,2,3,4,5,6],
+
       inGamePlayers : [1,2,3,4,5,6],
       gameEnd : false,
 
@@ -69,7 +79,6 @@ export default class President extends Component {
     }
   }
 
-  /*
   startGame() {
       this.state.deck.sort(function(a, b){return 0.5 - Math.random()});
 
@@ -86,7 +95,6 @@ export default class President extends Component {
         this.state.p4Hand.push(this.state.deck[j+39])
       }
   }
-  */
 
   getHand(array) {
     var newArray = [];
@@ -97,7 +105,13 @@ export default class President extends Component {
       if(sortedArray[i][0] >= this.state.lastPlayedCards[0]) {
         selected = true
       }
-      newArray.push(<Card value={sortedArray[i][0]} imageIndex={sortedArray[i][1]} overlap={lowestOverlap+i} selected={selected}/>)
+      newArray.push(
+        <Card value={sortedArray[i][0]}
+              imageIndex={sortedArray[i][1]}
+              overlap={lowestOverlap+i}
+              selected={selected}
+              onPress={this.state.lastPlayedCards.push[sortedArray[i][1]]}
+        />)
     }
     return newArray
   }
@@ -136,8 +150,19 @@ export default class President extends Component {
     return result;
   }
 
+
+  getActivePlayer() {
+    return this.state.activePlayer;
+  }
+  getLastPlayed() {
+    return this.state.lastPlayedCards[this.state.lastPlayedCards.length() - 1];
+  }
+  getNextPlayer() {
+
+  }
   renderScene(route, navigator)
   {
+
     switch(route.name) {
       case 'splashPage':
         return <Splash navigator={navigator} />
@@ -151,7 +176,7 @@ export default class President extends Component {
         return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
       case 'gamePagePass':
         this.currentPlayerNum = this.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} lastPlayedCards={()=> this.getLastPlayed()} eventIndex={0}/>
       case 'turnstartStart':
         this.currentPlayerNum = this.currentPlayerNum+1
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Start' />

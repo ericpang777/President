@@ -17,7 +17,8 @@ export default class Player extends Component {
       playerNum: 1
     }
     this.state = {
-      hand : this.props.hand,
+      playedCard : this.props.hand[this.props.lastPlayedCards],
+      hand : this.props.hand[this.props.playerNum - 1],
       rank : 'Neutral',
       name : this.props.name,
       cardImages : [
@@ -79,11 +80,11 @@ export default class Player extends Component {
     }
   }
 
-  render() {
+  /*render() {
     return(
       <View style={styles.container}>
         {this.state.hand}
       </View>
     );
-  }
+  }*/
 }
