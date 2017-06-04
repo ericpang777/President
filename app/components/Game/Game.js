@@ -34,7 +34,7 @@ class Game extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('../../images/cards/3_of_diamonds.png')} style={styles.card}/>
+        <Image source={require('../../images/cards/8_of_spades.png')} style={styles.card}/>
         <View style={styles.buttonContainer}>
           <PassButton
             eventIndex={this.state.eventIndex}

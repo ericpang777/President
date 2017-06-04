@@ -11,6 +11,7 @@ export default class Card extends Component {
   constructor(props) {
       super(props)
       this.state = {
+        //package: this.props.package,
         value: this.props.value,
         imageIndex: this.props.imageIndex,
         overlap: this.props.overlap,
