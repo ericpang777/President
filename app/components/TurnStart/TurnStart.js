@@ -38,7 +38,7 @@ export default class TurnStart extends Component {
         <Button
           title={this.state.playerName}
           style={styles.button}
-          onPress={() => this.navigate(('gamePagePass'))}>
+          onPress={() => this.navigate('gamePagePass')}>
         </Button>
       </View>
     );

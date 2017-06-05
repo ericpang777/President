@@ -40,7 +40,6 @@ export default class President extends Component {
     ]
     cards.sort(function(a, b){return 0.5 - Math.random()});
 
-    var currentPlayerNum = 1
     this.state = {
 
       /*
@@ -55,7 +54,7 @@ export default class President extends Component {
         <Player hand={this.state.p4Hand} name="Player4"/>
       ],*/
       playerNames : ["Player 1","Player 2","Player 3","Player 4","Player 5","Player 6"],
-      CcurrentPlayerNum: currentPlayerNum,
+      currentPlayerNum: 1,
 
       lastPlayedCards : [
         [6]
@@ -110,7 +109,7 @@ export default class President extends Component {
               imageIndex={sortedArray[i][1]}
               overlap={lowestOverlap+i}
               selected={selected}
-              onPress={this.state.lastPlayedCards.push[sortedArray[i][1]]}
+              onPress={this.state.lastPlayedCards.push(sortedArray[i][1])}
         />)
     }
     return newArray
@@ -158,7 +157,12 @@ export default class President extends Component {
     return this.state.lastPlayedCards[this.state.lastPlayedCards.length() - 1];
   }
   getNextPlayer() {
-
+    if(this.state.currentPlayerNum > 5){
+      this.setState({currentPlayerNum: 1})
+    }
+    else{
+      this.state.currentPlayerNum = this.state.currentPlayerNum + 1
+    }
   }
   renderScene(route, navigator)
   {
@@ -169,23 +173,23 @@ export default class President extends Component {
       case 'setupPage':
         return <Setup navigator={navigator} />
       case 'gamePageStart':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={1}/>
+        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} eventIndex={1}/>
       case 'gamePageContinue':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} eventIndex={0}/>
+        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} eventIndex={0}/>
       case 'gamePagePass':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[0])} lastPlayedCards={()=> this.getLastPlayed()} eventIndex={0}/>
+        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} lastPlayedCards={()=> {this.getLastPlayed()}} eventIndex={0}/>
       case 'turnstartStart':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Start' />
+        this.getNextPlayer()
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Start' />
       case 'turnstartContinue':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Continue' />
+        this.getNextPlayer()
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Continue' />
       case 'turnstartPass':
-        this.currentPlayerNum = this.currentPlayerNum+1
-        return <TurnStart navigator={navigator} playerName={this.state.playerNames[0] + "  Start"} playerState='Pass' />
+        this.getNextPlayer()
+        return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Pass' />
       default:
         break;
     }
