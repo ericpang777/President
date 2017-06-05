@@ -79,7 +79,6 @@ export default class Card extends Component {
   getOverlap(n,selected){
     if(selected == true){
       var top = 0;
-      //var right = 0;
       var right = 20 + 40*(n-1)
     }
     else{
