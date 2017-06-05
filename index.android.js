@@ -110,6 +110,7 @@ export default class President extends Component {
               overlap={lowestOverlap+i}
               selected={selected}
               onPress={this.state.lastPlayedCards.push(sortedArray[i][1])}
+
         />)
     }
     return newArray
@@ -163,6 +164,7 @@ export default class President extends Component {
     else{
       this.state.currentPlayerNum = this.state.currentPlayerNum + 1
     }
+
   }
   renderScene(route, navigator)
   {
@@ -181,6 +183,7 @@ export default class President extends Component {
       case 'gamePagePass':
         //this.state.currentPlayerNum = this.state.currentPlayerNum+1
         return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} lastPlayedCards={()=> {this.getLastPlayed()}} eventIndex={0}/>
+
       case 'turnstartStart':
         this.getNextPlayer()
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Start' />
