@@ -57,10 +57,7 @@ export default class President extends Component {
       currentPlayerNum: 1,
 
       lastPlayedCards : [
-        [6]
-      ],
-      lastPlayedValue : [
-        [6]
+        [6,1]
       ],
       remainingPlayers : [1,2,3,4,5,6],
 
@@ -101,7 +98,8 @@ export default class President extends Component {
     var lowestOverlap = sortedArray.length/2 * -1;
     for(var i = 0; i < sortedArray.length; i++) {
       var selected = false;
-      if(sortedArray[i][0] >= this.state.lastPlayedCards[0]) {
+      //Checking selected
+      if(sortedArray[i][0] >= this.state.lastPlayedCards[0][0]) {
         selected = true
       }
       newArray.push(
@@ -109,7 +107,7 @@ export default class President extends Component {
               imageIndex={sortedArray[i][1]}
               overlap={lowestOverlap+i}
               selected={selected}
-              onPress={this.state.lastPlayedCards.push(sortedArray[i][1])}
+              onPress={()=> {this.state.lastPlayedCards.push(sortedArray[i])}}
         />)
     }
     return newArray
@@ -154,38 +152,40 @@ export default class President extends Component {
     return this.state.activePlayer;
   }
   getLastPlayed() {
+    //Since its returning the last element in the 2d array, the returned value is a 1d array
     return this.state.lastPlayedCards[this.state.lastPlayedCards.length() - 1];
   }
   getNextPlayer() {
     if(this.state.currentPlayerNum > 5){
-      this.setState({currentPlayerNum: 1})
+      this.setState({currentPlayerNum: 0})
     }
+
     else{
       this.state.currentPlayerNum = this.state.currentPlayerNum + 1
     }
   }
   renderScene(route, navigator)
   {
-
     switch(route.name) {
       case 'splashPage':
         return <Splash navigator={navigator} />
       case 'setupPage':
         return <Setup navigator={navigator} />
       case 'gamePageStart':
-        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} eventIndex={1}/>
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])}
+                     eventIndex={1}
+                />
       case 'gamePageContinue':
-        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} eventIndex={0}/>
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])}
+                     eventIndex={0}
+                />
       case 'gamePagePass':
-        //this.state.currentPlayerNum = this.state.currentPlayerNum+1
-        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])} lastPlayedCards={()=> {this.getLastPlayed()}} eventIndex={0}/>
+        return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])}
+                     lastPlayedCards={()=> {this.getLastPlayed()}} //Its returning the last element in the 2d array, which is just a 1d array
+                     eventIndex={0}/>
       case 'turnstartStart':
-        this.getNextPlayer()
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Start' />
       case 'turnstartContinue':
-        this.getNextPlayer()
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Continue' />
       case 'turnstartPass':
         this.getNextPlayer()
@@ -204,16 +204,6 @@ export default class President extends Component {
         />
     );
   }
-  /*getActivePlaye0r() {
-    return this.state.activePlayer;
-  }
-
-  getLastPlayed() {
-    return this.state.lastPlayedCards;
-  }
-
-  getNextPlayer() {
-  }*/
 }
 
 AppRegistry.registerComponent('President', () => President);

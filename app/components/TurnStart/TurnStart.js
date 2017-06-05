@@ -23,13 +23,6 @@ export default class TurnStart extends Component {
   navigate(name)
   {
     this.props.navigator.push({name})
-
-    if(this.state.playerNum === 6){
-      this.state.playerNum = 1
-    }
-    else{
-      this.state.playerNum + 1
-    }
   }
 
   render() {
