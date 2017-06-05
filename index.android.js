@@ -183,7 +183,6 @@ export default class President extends Component {
         return <Game navigator={navigator} player={this.getHand(this.state.hands[this.state.currentPlayerNum - 1])}
                      lastPlayedCards={()=> {this.getLastPlayed()}} //Its returning the last element in the 2d array, which is just a 1d array
                      eventIndex={0}/>
-      case 'turnstartStart':
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Start' />
       case 'turnstartContinue':
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Continue' />
