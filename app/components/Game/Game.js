@@ -31,10 +31,12 @@ class Game extends Component {
   {
     this.props.navigator.push({name})
   }
+    //<Card value={this.state.lastPlayed[0]} imageIndex={this.state.lastPlayed[1]} overlap={0} selected={true} style={styles.card}/>
 
   render() {
     return (
       <View style={styles.container}>
+        <Image source={this.state.lastPlayed[1]} style={styles.card}/>
         <Image source={require('../../images/cards/8_of_spades.png')} style={styles.card}/>
         <View style={styles.buttonContainer}>
           <PassButton
