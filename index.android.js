@@ -157,7 +157,10 @@ export default class President extends Component {
   }
   getNextPlayer() {
     if(this.state.currentPlayerNum > 5){
-      this.setState({currentPlayerNum: 0})
+      this.setState({currentPlayerNum: 1})
+    }
+    else{
+      this.state.currentPlayerNum = this.state.currentPlayerNum + 1
     }
 
     else{
@@ -185,6 +188,7 @@ export default class President extends Component {
                      eventIndex={0}/>
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Start' />
       case 'turnstartContinue':
+
         return <TurnStart navigator={navigator} playerName={this.state.playerNames[this.state.currentPlayerNum - 1] + "  Start"} playerState='Continue' />
       case 'turnstartPass':
         this.getNextPlayer()
